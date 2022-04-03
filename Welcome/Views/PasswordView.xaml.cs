@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace Welcome.Views
 {
     /// <summary>
-    /// Interaction logic for WelcomePasswordView.xaml
+    /// Interaction logic for PasswordView.xaml
     /// </summary>
-    public partial class WelcomePasswordView : UserControl
+    public partial class PasswordView : UserControl
     {
-        public WelcomePasswordView()
+        public PasswordView()
         {
             InitializeComponent();
         }

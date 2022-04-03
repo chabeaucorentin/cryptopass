@@ -12,9 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using Dashboard.ViewModels;
 
-namespace Dashboard
+namespace About
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -24,7 +23,6 @@ namespace Dashboard
         public MainWindow()
         {
             InitializeComponent();
-            DataContext = new PaymentsViewModel();
         }
     }
 }

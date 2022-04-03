@@ -4,8 +4,24 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Dashboard"
+        xmlns:viewmodels="clr-namespace:Dashboard.ViewModels"
+        xmlns:views="clr-namespace:Dashboard.Views"
         mc:Ignorable="d"
-        Title="CryptoPass - Mots de passe" Height="600" Width="900" MinHeight="500" MinWidth="800">
+        Title="CryptoPass - Mots de passe" Height="600" Width="900" MinHeight="500" MinWidth="800" WindowStartupLocation="CenterScreen" Background="#F0F0F0">
+    <Window.Resources>
+        <DataTemplate x:Name="PasswordsTemplate" DataType="{x:Type viewmodels:PasswordsViewModel}">
+            <views:PasswordsView DataContext="{Binding}" />
+        </DataTemplate>
+        <DataTemplate x:Name="NotesTemplate" DataType="{x:Type viewmodels:NotesViewModel}">
+            <views:NotesView DataContext="{Binding}" />
+        </DataTemplate>
+        <DataTemplate x:Name="PaymentsTemplate" DataType="{x:Type viewmodels:PaymentsViewModel}">
+            <views:PaymentsView DataContext="{Binding}" />
+        </DataTemplate>
+        <DataTemplate x:Name="GeneratorTemplate" DataType="{x:Type viewmodels:GeneratorViewModel}">
+            <views:GeneratorView DataContext="{Binding}" />
+        </DataTemplate>
+    </Window.Resources>
     <DockPanel>
         <Menu DockPanel.Dock="Top">
             <MenuItem Header="Fichier">
@@ -38,11 +54,21 @@
                 <ColumnDefinition Width="75*" />
             </Grid.ColumnDefinitions>
 
-            <StackPanel Background="Red">
+            <DockPanel Grid.Column="0">
+                <Button DockPanel.Dock="Bottom" Height="65" FontSize="15" Content="Déconnexion" />
+                <StackPanel>
+                    <Button Height="65" FontSize="15" Content="Mots de passe" />
+                    <Button Height="65" FontSize="15" Content="Notes sécurisées" />
+                    <Button Height="65" FontSize="15" Content="Moyens de paiements" />
+                    <Button Height="65" FontSize="15">
+                        <TextBlock TextAlignment="Center" TextWrapping="WrapWithOverflow">
+                            Générateur de<LineBreak />mots de passe
+                        </TextBlock>
+                    </Button>
+                </StackPanel>
+            </DockPanel>
 
-            </StackPanel>
-
-            <ContentControl Content="{Binding}" />
+            <ContentControl Grid.Column="1" Content="{Binding}" />
         </Grid>
     </DockPanel>
 </Window>

@@ -18,6 +18,9 @@
         <DataTemplate x:Name="Welcome3Template" DataType="{x:Type viewmodels:Welcome3ViewModel}">
             <views:Welcome3View DataContext="{Binding}" />
         </DataTemplate>
+        <DataTemplate x:Name="WelcomePasswordTemplate" DataType="{x:Type viewmodels:PasswordViewModel}">
+            <views:PasswordView DataContext="{Binding}" />
+        </DataTemplate>
     </Window.Resources>
     <ContentControl MaxHeight="485" MaxWidth="387" Content="{Binding}" />
 </Window>

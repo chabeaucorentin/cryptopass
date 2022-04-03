@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Welcome.ViewModels
 {
-    public class WelcomePasswordViewModel
+    public class PasswordViewModel
     {
     }
 }

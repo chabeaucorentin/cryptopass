@@ -32,11 +32,11 @@
                 <Button DockPanel.Dock="Bottom" x:Name="BtnDelete" FontSize="15" Height="30" Margin="10" Content="Supprimer" />
                 <StackPanel>
                     <Label FontSize="15" Margin="5,5,5,0">Titulaire de la carte</Label>
-                    <TextBox x:Name="TextBoxName" FontSize="18" Margin="10,0,10,0" />
+                    <TextBox x:Name="TextBoxName" Height="25" FontSize="15" VerticalContentAlignment="Center" Margin="10,0,10,0" />
                     <Label FontSize="15" Margin="5,5,5,0">Numéro de carte</Label>
-                    <TextBox x:Name="TextBoxLogin" FontSize="18" Margin="10,0,10,0" />
+                    <TextBox x:Name="TextBoxLogin" Height="25" FontSize="15" VerticalContentAlignment="Center" Margin="10,0,10,0" />
                     <Label FontSize="15" Margin="5,5,5,0">Code de sécurité</Label>
-                    <TextBox x:Name="TextBoxPassword" FontSize="18" Margin="10,0,10,0" />
+                    <TextBox x:Name="TextBoxPassword" Height="25" FontSize="15" VerticalContentAlignment="Center" Margin="10,0,10,0" />
                     <Grid>
                         <Grid.RowDefinitions>
                             <RowDefinition Height="Auto" />

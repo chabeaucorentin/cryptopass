@@ -30,12 +30,12 @@
             <DockPanel>
                 <StackPanel DockPanel.Dock="Top">
                     <Label FontSize="15" Margin="5,5,5,0">Nom</Label>
-                    <TextBox x:Name="TextBoxName" FontSize="18" Margin="10,0,10,0" />
+                    <TextBox x:Name="TextBoxName" Height="25" FontSize="15" VerticalContentAlignment="Center" Margin="10,0,10,0" />
                 </StackPanel>
                 <Button DockPanel.Dock="Bottom" x:Name="BtnDelete" FontSize="15" Height="30" Margin="10" Content="Supprimer" />
                 <DockPanel>
                     <Label DockPanel.Dock="Top" FontSize="15" Margin="5,5,5,0">Contenu</Label>
-                    <TextBox x:Name="TextBoxContent" HorizontalAlignment="Stretch" FontSize="18" TextWrapping="Wrap" AcceptsReturn="True" VerticalScrollBarVisibility="Visible" Margin="10,0,10,0" />
+                    <TextBox x:Name="TextBoxContent" HorizontalAlignment="Stretch" FontSize="15" TextWrapping="Wrap" AcceptsReturn="True" VerticalScrollBarVisibility="Visible" Margin="10,0,10,0" />
                 </DockPanel>
             </DockPanel>
         </Border>

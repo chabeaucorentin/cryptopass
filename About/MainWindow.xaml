@@ -5,8 +5,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:About"
         mc:Ignorable="d"
-        Title="CryptoPass - À propos" Height="450" Width="800">
-    <Grid>
-
+        Title="CryptoPass - À propos" Height="310" Width="550" MinHeight="310" MinWidth="550" WindowStartupLocation="CenterOwner" Background="#BAB8B8">
+    <Grid Height="275" Width="537" Background="#FFF">
+        <StackPanel VerticalAlignment="Center">
+            <Label FontSize="40" FontWeight="Bold" HorizontalAlignment="Center">CryptoPass</Label>
+            <TextBlock FontSize="18" HorizontalAlignment="Center" TextAlignment="Center" TextWrapping="WrapWithOverflow" Margin="0,20,0,0">
+            CryptoPass est une application de gestion de vos mots de<LineBreak />passe, notes sécurisées et moyens de paiements.
+            </TextBlock>
+            <Label FontSize="18" HorizontalAlignment="Center" Margin="0,20,0,0">CryptoPass v1.0.0</Label>
+            <Label FontSize="18" HorizontalAlignment="Center" Margin="0,-5,0,15">Développé par Chabeau Corentin</Label>
+        </StackPanel>
     </Grid>
 </Window>

@@ -8,14 +8,20 @@ __[:page_facing_up: Énoncé du projet](./Ressources/enonce.pdf)__
 
 ## Présentation du projet
 
-CryptoPass est un gestionnaire de mots de passe.
+CryptoPass est une application de gestion de vos mots de passe, notes sécurisées et moyens de paiements.
 
 __Fonctionnalités du projet :__
 
-1. Gestion de mots de passe
-2. Génération de mot de passe
-3. Exportation des mots de passe
-4. Importation de mots de passe
+1. Connexion à l'aide d'un code unique défini lors du premier lancement de l'application
+2. Gestion de mots de passe, notes sécurisées et moyens de paiements
+3. Cryptage des données localement
+4. Génération de mot de passe
+5. Exportation des données
+6. Importation de données
+
+__Classes du projet :__
+
+1. XXX
 
 ## Organisation du projet
 

@@ -17,7 +17,7 @@
         </Grid.ColumnDefinitions>
 
         <StackPanel Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Right">
-            <Button FontSize="15" Height="30" Margin="10" Padding="10,0,10,0" Content="Ajouter une note" />
+            <Button Margin="10" Padding="10,0,10,0" Content="Ajouter une note" />
         </StackPanel>
 
         <DataGrid Grid.Row="1" Grid.Column="0" Margin="10,0,5,10">
@@ -29,13 +29,13 @@
         <Border Grid.Row="1" Grid.Column="1" BorderBrush="#9A9696" BorderThickness="1" Margin="5,0,10,10">
             <DockPanel>
                 <StackPanel DockPanel.Dock="Top">
-                    <Label FontSize="15" Margin="5,5,5,0">Nom</Label>
-                    <TextBox x:Name="TextBoxName" Height="25" FontSize="15" VerticalContentAlignment="Center" Margin="10,0,10,0" />
+                    <Label Margin="5,5,5,0">Nom</Label>
+                    <TextBox x:Name="TextBoxName" Margin="10,0,10,0" />
                 </StackPanel>
-                <Button DockPanel.Dock="Bottom" x:Name="BtnDelete" FontSize="15" Height="30" Margin="10" Content="Supprimer" />
+                <Button DockPanel.Dock="Bottom" x:Name="BtnDelete" Margin="10" Content="Supprimer" />
                 <DockPanel>
-                    <Label DockPanel.Dock="Top" FontSize="15" Margin="5,5,5,0">Contenu</Label>
-                    <TextBox x:Name="TextBoxContent" HorizontalAlignment="Stretch" FontSize="15" TextWrapping="Wrap" AcceptsReturn="True" VerticalScrollBarVisibility="Visible" Margin="10,0,10,0" />
+                    <Label DockPanel.Dock="Top" Margin="5,5,5,0">Contenu</Label>
+                    <TextBox x:Name="TextBoxContent" Height="Auto" HorizontalAlignment="Stretch" VerticalContentAlignment="Top" TextWrapping="Wrap" AcceptsReturn="True" VerticalScrollBarVisibility="Visible" Margin="10,0,10,0" />
                 </DockPanel>
             </DockPanel>
         </Border>

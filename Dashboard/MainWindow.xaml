@@ -6,8 +6,17 @@
         xmlns:local="clr-namespace:Dashboard"
         mc:Ignorable="d"
         Title="CryptoPass - Mots de passe" Height="600" Width="900" MinHeight="500" MinWidth="800" WindowStartupLocation="CenterScreen" Background="#F0F0F0">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Dictionaries/ButtonsDictionary.xaml" />
+                <ResourceDictionary Source="Dictionaries/FormDictionary.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+
     <DockPanel>
-        <Menu DockPanel.Dock="Top">
+        <Menu DockPanel.Dock="Top" BorderBrush="#9A9696" BorderThickness="0,1,0,1">
             <MenuItem Header="Fichier">
                 <MenuItem x:Name="BtnSave" Header="Enregistrer" />
                 <Separator />
@@ -38,19 +47,21 @@
                 <ColumnDefinition Width="75*" />
             </Grid.ColumnDefinitions>
 
-            <DockPanel Grid.Column="0">
-                <Button DockPanel.Dock="Bottom" Height="65" FontSize="15" Content="Déconnexion" />
-                <StackPanel>
-                    <Button Height="65" FontSize="15" Content="Mots de passe" Command="{Binding UpdateViewCommand}" CommandParameter="Passwords" />
-                    <Button Height="65" FontSize="15" Content="Notes sécurisées" Command="{Binding UpdateViewCommand}" CommandParameter="Notes" />
-                    <Button Height="65" FontSize="15" Content="Moyens de paiements" Command="{Binding UpdateViewCommand}" CommandParameter="Payments" />
-                    <Button Height="65" FontSize="15" Command="{Binding UpdateViewCommand}" CommandParameter="Generator">
-                        <TextBlock TextAlignment="Center" TextWrapping="WrapWithOverflow">
+            <Border Grid.Column="0" BorderBrush="#9A9696"  BorderThickness="0,0,1,0">
+                <DockPanel>
+                    <Button DockPanel.Dock="Bottom" Content="Déconnexion" Style="{StaticResource BtnLogout}" />
+                    <StackPanel>
+                        <Button Content="Mots de passe" Style="{StaticResource BtnSideBar}" Command="{Binding UpdateViewCommand}" CommandParameter="Passwords" />
+                        <Button Content="Notes sécurisées" Style="{StaticResource BtnSideBar}" Command="{Binding UpdateViewCommand}" CommandParameter="Notes" />
+                        <Button Content="Moyens de paiements" Style="{StaticResource BtnSideBar}" Command="{Binding UpdateViewCommand}" CommandParameter="Payments" />
+                        <Button Style="{StaticResource BtnSideBar}" Command="{Binding UpdateViewCommand}" CommandParameter="Generator">
+                            <TextBlock TextAlignment="Center" TextWrapping="WrapWithOverflow">
                             Générateur de<LineBreak />mots de passe
-                        </TextBlock>
-                    </Button>
-                </StackPanel>
-            </DockPanel>
+                            </TextBlock>
+                        </Button>
+                    </StackPanel>
+                </DockPanel>
+            </Border>
 
             <ContentControl Grid.Column="1" Content="{Binding SelectedViewModel}" />
         </Grid>

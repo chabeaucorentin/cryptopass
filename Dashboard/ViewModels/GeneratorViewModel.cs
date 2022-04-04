@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Dashboard.ViewModels
 {
-    public class GeneratorViewModel
+    public class GeneratorViewModel : BaseViewModel
     {
     }
 }

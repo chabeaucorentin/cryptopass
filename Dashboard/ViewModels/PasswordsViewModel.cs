@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Dashboard.ViewModels
 {
-    public class PasswordsViewModel
+    public class PasswordsViewModel : BaseViewModel
     {
     }
 }

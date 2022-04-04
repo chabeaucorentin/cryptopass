@@ -24,7 +24,7 @@ namespace Dashboard
         public MainWindow()
         {
             InitializeComponent();
-            DataContext = new PaymentsViewModel();
+            DataContext = new MainViewModel();
         }
     }
 }

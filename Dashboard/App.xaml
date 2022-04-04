@@ -2,8 +2,21 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:Dashboard"
+             xmlns:viewmodels="clr-namespace:Dashboard.ViewModels"
+             xmlns:views="clr-namespace:Dashboard.Views"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <DataTemplate DataType="{x:Type viewmodels:PasswordsViewModel}">
+            <views:PasswordsView />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewmodels:NotesViewModel}">
+            <views:NotesView />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewmodels:PaymentsViewModel}">
+            <views:PaymentsView />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewmodels:GeneratorViewModel}">
+            <views:GeneratorView />
+        </DataTemplate>
     </Application.Resources>
 </Application>

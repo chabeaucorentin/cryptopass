@@ -5,8 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:About"
         mc:Ignorable="d"
-        Title="CryptoPass - À propos" Height="310" Width="550" MinHeight="310" MinWidth="550" WindowStartupLocation="CenterOwner" Background="#BAB8B8">
-    <Grid Height="275" Width="537" Background="#FFF">
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterOwner"
+        Title="CryptoPass - À propos" Height="310" Width="550">
+    <Grid>
         <StackPanel VerticalAlignment="Center">
             <Label FontSize="40" FontWeight="Bold" HorizontalAlignment="Center">CryptoPass</Label>
             <TextBlock FontSize="18" HorizontalAlignment="Center" TextAlignment="Center" TextWrapping="WrapWithOverflow" Margin="0,20,0,0">

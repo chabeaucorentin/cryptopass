@@ -5,8 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Login"
         mc:Ignorable="d"
-        Title="CryptoPass - Connexion" Height="295" Width="400" MinHeight="295" MinWidth="400" WindowStartupLocation="CenterScreen" Background="#BAB8B8">
-    <Grid Height="260" Width="387" Background="#FFF">
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen"
+        Title="CryptoPass - Connexion" Height="295" Width="400">
+    <Grid>
         <StackPanel MaxHeight="485" MaxWidth="387" VerticalAlignment="Center">
             <Label FontSize="40" FontWeight="Bold" HorizontalAlignment="Center">CryptoPass</Label>
             <Label FontSize="20" Margin="15,15,15,0">Mot de passe maître</Label>

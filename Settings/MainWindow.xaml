@@ -5,7 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Settings"
         mc:Ignorable="d"
-        Title="CryptoPass - Paramètres" Height="347" Width="350" MinHeight="347" MinWidth="350" Background="#F0F0F0">
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterOwner"
+        Title="CryptoPass - Paramètres" Height="347" Width="350" Background="#F0F0F0">
     <DockPanel>
         <StackPanel DockPanel.Dock="Bottom" Orientation="Horizontal" HorizontalAlignment="Right">
             <Button Width="75" Margin="0,8,4,8" Content="OK" />

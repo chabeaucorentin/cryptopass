@@ -7,7 +7,9 @@
         xmlns:viewmodels="clr-namespace:Welcome.ViewModels"
         xmlns:views="clr-namespace:Welcome.Views"
         mc:Ignorable="d"
-        Title="CryptoPass - Bienvenue" Height="520" Width="400" MinHeight="520" MinWidth="400" WindowStartupLocation="CenterScreen" Background="#BAB8B8">
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen"
+        Title="CryptoPass - Bienvenue" Height="520" Width="400">
     <Window.Resources>
         <DataTemplate x:Name="Welcome1Template" DataType="{x:Type viewmodels:Welcome1ViewModel}">
             <views:Welcome1View DataContext="{Binding}" />
@@ -22,5 +24,5 @@
             <views:PasswordView DataContext="{Binding}" />
         </DataTemplate>
     </Window.Resources>
-    <ContentControl MaxHeight="485" MaxWidth="387" Content="{Binding}" />
+    <ContentControl Content="{Binding}" />
 </Window>

@@ -40,7 +40,11 @@ namespace Dashboard.ViewModels
             }
         }
 
-        public void UpdateView(string view)
+        public ICommand UpdateViewCommand { get; set; }
+        #endregion
+
+        #region METHODS
+        public void UpdateView(string? view)
         {
             switch (view)
             {
@@ -58,8 +62,6 @@ namespace Dashboard.ViewModels
                     break;
             }
         }
-
-        public ICommand UpdateViewCommand { get; set; }
         #endregion
     }
 }

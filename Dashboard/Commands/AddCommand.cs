@@ -5,20 +5,21 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Dashboard.ViewModels;
+using SecureLibrary;
 
 namespace Dashboard.Commands
 {
-    public class UpdateViewCommand : ICommand
+    public class AddCommand : ICommand
     {
         #region MEMBER VARIABLES
-        private readonly MainViewModel _mainViewModel;
+        private readonly IAddSecureObject _viewModel;
         public event EventHandler? CanExecuteChanged;
         #endregion
 
         #region CONSTRUCTORS
-        public UpdateViewCommand(MainViewModel viewModel)
+        public AddCommand(IAddSecureObject viewModel)
         {
-            _mainViewModel  = viewModel;
+            _viewModel = viewModel;
         }
         #endregion
 
@@ -30,7 +31,7 @@ namespace Dashboard.Commands
 
         public void Execute(object? parameter)
         {
-            _mainViewModel.UpdateView(parameter?.ToString());
+            _viewModel.Add();
         }
         #endregion
     }

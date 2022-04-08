@@ -15,12 +15,16 @@ namespace SecureLibrary
         #endregion
 
         #region CONSTRUCTORS
-        public Payment(string name = "", string number = "", string cvv = "", int year = 0, int month = 0)
+        public Payment(string name = "", string number = "", string cvv = "", int year = -1, int month = -1)
         {
             _name = name;
             _number = number;
             _cvv = cvv;
-            _date = new DateTime(year, month, 0);
+            if (year < 0)
+                year = DateTime.Now.Year;
+            if (month < 0)
+                month = DateTime.Now.Month;
+            _date = new DateTime(year, month, 1);
         }
         #endregion
 
@@ -40,13 +44,13 @@ namespace SecureLibrary
         public int Year
         {
             get { return _date.Year; }
-            set { _date = new DateTime(value, _date.Month, 0); }
+            set { _date = new DateTime(value, _date.Month, 1); }
         }
 
         public int Month
         {
             get { return _date.Month; }
-            set { _date = new DateTime(_date.Year, value, 0); }
+            set { _date = new DateTime(_date.Year, value, 1); }
         }
         #endregion
     }

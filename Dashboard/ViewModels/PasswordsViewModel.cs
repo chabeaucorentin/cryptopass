@@ -21,8 +21,6 @@ namespace Dashboard.ViewModels
         {
             ListPasswords = new ObservableCollection<PasswordViewModel>();
             AddCommand = new AddCommand(this);
-            ListPasswords.Add(new PasswordViewModel(new Password()));
-            ListPasswords.Add(new PasswordViewModel(new Password()));
         }
         #endregion
 

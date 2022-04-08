@@ -17,12 +17,12 @@
         </Grid.ColumnDefinitions>
 
         <StackPanel Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Right">
-            <Button Margin="10" Padding="10,0,10,0" Content="Ajouter une note" />
+            <Button Margin="10" Padding="10,0,10,0" Content="Ajouter une note" Command="{Binding AddCommand}" />
         </StackPanel>
 
-        <DataGrid Grid.Row="1" Grid.Column="0" Margin="10,0,5,10">
+        <DataGrid Grid.Row="1" Grid.Column="0" Margin="10,0,5,10" ItemsSource="{Binding ListNotes}" SelectedItem="{Binding SelectedNote, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Nom" Width="*" />
+                <DataGridTextColumn Header="Nom" Width="*" Binding="{Binding Name}" />
             </DataGrid.Columns>
         </DataGrid>
 
@@ -30,12 +30,14 @@
             <DockPanel>
                 <StackPanel DockPanel.Dock="Top">
                     <Label Margin="5,5,5,0">Nom</Label>
-                    <TextBox x:Name="TextBoxName" Margin="10,0,10,0" />
+                    <TextBox x:Name="TextBoxName" Margin="10,0,10,0" Text="{Binding SelectedNote.Name, UpdateSourceTrigger=PropertyChanged}" />
                 </StackPanel>
                 <Button DockPanel.Dock="Bottom" x:Name="BtnDelete" Margin="10" Content="Supprimer" />
                 <DockPanel>
                     <Label DockPanel.Dock="Top" Margin="5,5,5,0">Contenu</Label>
-                    <TextBox x:Name="TextBoxContent" Height="Auto" HorizontalAlignment="Stretch" VerticalContentAlignment="Top" TextWrapping="Wrap" AcceptsReturn="True" VerticalScrollBarVisibility="Visible" Margin="10,0,10,0" />
+                    <TextBox x:Name="TextBoxContent" Height="Auto" HorizontalAlignment="Stretch" VerticalContentAlignment="Top"
+                             TextWrapping="Wrap" AcceptsReturn="True" VerticalScrollBarVisibility="Visible" Margin="10,0,10,0"
+                             Text="{Binding SelectedNote.Content, UpdateSourceTrigger=PropertyChanged}" />
                 </DockPanel>
             </DockPanel>
         </Border>

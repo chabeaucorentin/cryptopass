@@ -30,21 +30,7 @@ namespace Dashboard.Commands
 
         public void Execute(object? parameter)
         {
-            switch (parameter?.ToString())
-            {
-                case "Passwords":
-                    _mainViewModel.SelectedViewModel = new PasswordsViewModel();
-                    break;
-                case "Notes":
-                    _mainViewModel.SelectedViewModel = new NotesViewModel();
-                    break;
-                case "Payments":
-                    _mainViewModel.SelectedViewModel = new PaymentsViewModel();
-                    break;
-                case "Generator":
-                    _mainViewModel.SelectedViewModel = new GeneratorViewModel();
-                    break;
-            }
+            _mainViewModel.UpdateView(parameter?.ToString());
         }
         #endregion
     }

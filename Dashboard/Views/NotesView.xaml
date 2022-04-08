@@ -13,7 +13,7 @@
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition />
-            <ColumnDefinition />
+            <ColumnDefinition MaxWidth="350" />
         </Grid.ColumnDefinitions>
 
         <StackPanel Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Right">
@@ -22,7 +22,7 @@
 
         <DataGrid Grid.Row="1" Grid.Column="0" Margin="10,0,5,10">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Nom" Width="100*" />
+                <DataGridTextColumn Header="Nom" Width="*" />
             </DataGrid.Columns>
         </DataGrid>
 

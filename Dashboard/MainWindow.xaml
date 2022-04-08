@@ -52,7 +52,7 @@
                 <DockPanel>
                     <Button DockPanel.Dock="Bottom" Content="Déconnexion" Style="{StaticResource BtnLogout}" />
                     <StackPanel>
-                        <Button Content="Mots de passe" Style="{StaticResource BtnSideBar}" Command="{Binding UpdateViewCommand}" CommandParameter="Passwords" />
+                        <Button Content="Mots de passe" Style="{StaticResource BtnSideBarActive}" Command="{Binding UpdateViewCommand}" CommandParameter="Passwords" />
                         <Button Content="Notes sécurisées" Style="{StaticResource BtnSideBar}" Command="{Binding UpdateViewCommand}" CommandParameter="Notes" />
                         <Button Content="Moyens de paiements" Style="{StaticResource BtnSideBar}" Command="{Binding UpdateViewCommand}" CommandParameter="Payments" />
                         <Button Style="{StaticResource BtnSideBar}" Command="{Binding UpdateViewCommand}" CommandParameter="Generator">

@@ -12,12 +12,20 @@ namespace Dashboard.ViewModels
     {
         #region MEMBER VARIABLES
         private BaseViewModel _selectedViewModel;
+        private readonly BaseViewModel _passwordsViewModel;
+        private readonly BaseViewModel _notesViewModel;
+        private readonly BaseViewModel _paymentsViewModel;
+        private readonly BaseViewModel _generatorViewModel;
         #endregion
 
         #region CONSTRUCTORS
         public MainViewModel()
         {
-            _selectedViewModel = new PasswordsViewModel();
+            _passwordsViewModel = new PasswordsViewModel();
+            _notesViewModel = new NotesViewModel();
+            _paymentsViewModel = new PaymentsViewModel();
+            _generatorViewModel = new GeneratorViewModel();
+            _selectedViewModel = _passwordsViewModel;
             UpdateViewCommand = new UpdateViewCommand(this);
         }
         #endregion
@@ -29,6 +37,25 @@ namespace Dashboard.ViewModels
             set {
                 _selectedViewModel = value;
                 OnPropertyChanged(nameof(SelectedViewModel));
+            }
+        }
+
+        public void UpdateView(string view)
+        {
+            switch (view)
+            {
+                case "Passwords":
+                    SelectedViewModel = _passwordsViewModel;
+                    break;
+                case "Notes":
+                    SelectedViewModel = _notesViewModel;
+                    break;
+                case "Payments":
+                    SelectedViewModel = _paymentsViewModel;
+                    break;
+                case "Generator":
+                    SelectedViewModel = _generatorViewModel;
+                    break;
             }
         }
 

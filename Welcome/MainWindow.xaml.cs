@@ -24,7 +24,7 @@ namespace Welcome
         public MainWindow()
         {
             InitializeComponent();
-            DataContext = new Welcome1ViewModel();
+            DataContext = new MainViewModel();
         }
     }
 }

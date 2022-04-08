@@ -25,10 +25,5 @@ namespace Welcome.Views
         {
             InitializeComponent();
         }
-
-        private void BtnNext_Click(object sender, RoutedEventArgs e)
-        {
-            DataContext = new Welcome2ViewModel();
-        }
     }
 }

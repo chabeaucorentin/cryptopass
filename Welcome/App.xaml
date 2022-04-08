@@ -2,8 +2,21 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:Welcome"
+             xmlns:viewmodels="clr-namespace:Welcome.ViewModels"
+             xmlns:views="clr-namespace:Welcome.Views"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <DataTemplate DataType="{x:Type viewmodels:Welcome1ViewModel}">
+            <views:Welcome1View />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewmodels:Welcome2ViewModel}">
+            <views:Welcome2View />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewmodels:Welcome3ViewModel}">
+            <views:Welcome3View />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewmodels:PasswordViewModel}">
+            <views:PasswordView />
+        </DataTemplate>
     </Application.Resources>
 </Application>

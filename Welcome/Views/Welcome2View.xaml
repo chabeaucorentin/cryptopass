@@ -15,6 +15,6 @@
             <Label Foreground="#646464" FontSize="15" FontFamily="Segoe MDL2 Assets" Margin="8,0,8,0" Content="&#xF63C;" />
             <Label Foreground="#BAB8B8" FontSize="15" FontFamily="Segoe MDL2 Assets" Margin="8,0,0,0" Content="&#xF63C;" />
         </StackPanel>
-        <Button FontSize="18" Height="40" Margin="20,35,20,0" Content="Suivant" />
+        <Button FontSize="18" Height="40" Margin="20,35,20,0" Content="Suivant" Command="{Binding UpdateViewCommand}" />
     </StackPanel>
 </UserControl>

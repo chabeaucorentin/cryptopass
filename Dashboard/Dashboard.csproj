@@ -8,6 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\CommonViewModels\CommonViewModels.csproj" />
     <ProjectReference Include="..\SecureLibrary\SecureLibrary.csproj" />
   </ItemGroup>
 

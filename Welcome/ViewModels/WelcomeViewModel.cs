@@ -3,22 +3,21 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Input;
-using Welcome.Commands;
+using CommonViewModels;
 
 namespace Welcome.ViewModels
 {
     public abstract class WelcomeViewModel : BaseViewModel
     {
         #region CONSTRUCTORS
-        public WelcomeViewModel(MainViewModel viewModel)
+        public WelcomeViewModel(DelegateCommand updateViewCommand)
         {
-            UpdateViewCommand = new UpdateViewCommand(viewModel);
+            UpdateViewCommand = updateViewCommand;
         }
         #endregion
 
         #region GETTERS/SETTERS
-        public ICommand UpdateViewCommand { get; set; }
+        public DelegateCommand UpdateViewCommand { get; set; }
         #endregion
     }
 }

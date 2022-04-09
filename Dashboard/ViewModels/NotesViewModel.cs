@@ -4,8 +4,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Input;
-using Dashboard.Commands;
+using CommonViewModels;
 using SecureLibrary;
 
 namespace Dashboard.ViewModels
@@ -20,7 +19,7 @@ namespace Dashboard.ViewModels
         public NotesViewModel()
         {
             ListNotes = new ObservableCollection<NoteViewModel>();
-            AddCommand = new AddCommand(this);
+            AddCommand = new DelegateCommand(Add);
         }
         #endregion
 
@@ -39,14 +38,14 @@ namespace Dashboard.ViewModels
         #endregion
 
         #region METHODS
-        public void Add()
+        public void Add(object parameter)
         {
             NoteViewModel NewNote = new(new Note());
             ListNotes.Add(NewNote);
             SelectedNote = NewNote;
         }
 
-        public ICommand AddCommand { get; set; }
+        public DelegateCommand AddCommand { get; set; }
         #endregion
     }
 }

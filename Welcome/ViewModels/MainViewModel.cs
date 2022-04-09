@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using CommonViewModels;
 
 namespace Welcome.ViewModels
 {
@@ -16,8 +17,9 @@ namespace Welcome.ViewModels
         #region CONSTRUCTORS
         public MainViewModel()
         {
+            UpdateViewCommand = new DelegateCommand(UpdateView);
             _view = 1;
-            _selectedViewModel = new Welcome1ViewModel(this);
+            _selectedViewModel = new Welcome1ViewModel(UpdateViewCommand);
         }
         #endregion
 
@@ -31,19 +33,21 @@ namespace Welcome.ViewModels
                 OnPropertyChanged(nameof(SelectedViewModel));
             }
         }
+
+        public DelegateCommand UpdateViewCommand { get; set; }
         #endregion
 
         #region METHODS
-        public void UpdateView()
+        public void UpdateView(object parameter)
         {
             _view++;
             switch (_view)
             {
                 case 2:
-                    SelectedViewModel = new Welcome2ViewModel(this);
+                    SelectedViewModel = new Welcome2ViewModel(UpdateViewCommand);
                     break;
                 case 3:
-                    SelectedViewModel = new Welcome3ViewModel(this);
+                    SelectedViewModel = new Welcome3ViewModel(UpdateViewCommand);
                     break;
                 case 4:
                     SelectedViewModel = new PasswordViewModel();

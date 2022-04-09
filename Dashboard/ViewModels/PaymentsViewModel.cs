@@ -4,8 +4,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Input;
-using Dashboard.Commands;
+using CommonViewModels;
 using SecureLibrary;
 
 namespace Dashboard.ViewModels
@@ -20,7 +19,7 @@ namespace Dashboard.ViewModels
         public PaymentsViewModel()
         {
             ListPayments = new ObservableCollection<PaymentViewModel>();
-            AddCommand = new AddCommand(this);
+            AddCommand = new DelegateCommand(Add);
         }
         #endregion
 
@@ -39,14 +38,14 @@ namespace Dashboard.ViewModels
         #endregion
 
         #region METHODS
-        public void Add()
+        public void Add(object parameter)
         {
             PaymentViewModel NewPayment = new(new Payment());
             ListPayments.Add(NewPayment);
             SelectedPayment = NewPayment;
         }
 
-        public ICommand AddCommand { get; set; }
+        public DelegateCommand AddCommand { get; set; }
         #endregion
     }
 }

@@ -13,7 +13,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Settings", "Settings\Settin
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "About", "About\About.csproj", "{A4F9D3B9-3DFF-42D9-AF0C-776515BF6790}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SecureLibrary", "SecureLibrary\SecureLibrary.csproj", "{12136064-EBD4-4DFE-A4C0-A48BA94298D4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SecureLibrary", "SecureLibrary\SecureLibrary.csproj", "{12136064-EBD4-4DFE-A4C0-A48BA94298D4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommonViewModels", "CommonViewModels\CommonViewModels.csproj", "{5178FD32-BBCB-4BE1-B1FA-5D436B071516}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,10 @@ Global
 		{12136064-EBD4-4DFE-A4C0-A48BA94298D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{12136064-EBD4-4DFE-A4C0-A48BA94298D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{12136064-EBD4-4DFE-A4C0-A48BA94298D4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5178FD32-BBCB-4BE1-B1FA-5D436B071516}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5178FD32-BBCB-4BE1-B1FA-5D436B071516}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5178FD32-BBCB-4BE1-B1FA-5D436B071516}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5178FD32-BBCB-4BE1-B1FA-5D436B071516}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

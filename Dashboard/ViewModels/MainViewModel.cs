@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Input;
-using Dashboard.Commands;
+using CommonViewModels;
 
 namespace Dashboard.ViewModels
 {
@@ -26,7 +25,7 @@ namespace Dashboard.ViewModels
             _paymentsViewModel = new PaymentsViewModel();
             _generatorViewModel = new GeneratorViewModel();
             _selectedViewModel = _passwordsViewModel;
-            UpdateViewCommand = new UpdateViewCommand(this);
+            UpdateViewCommand = new DelegateCommand(UpdateView);
         }
         #endregion
 
@@ -40,13 +39,13 @@ namespace Dashboard.ViewModels
             }
         }
 
-        public ICommand UpdateViewCommand { get; set; }
+        public DelegateCommand UpdateViewCommand { get; set; }
         #endregion
 
         #region METHODS
-        public void UpdateView(string? view)
+        public void UpdateView(object parameter)
         {
-            switch (view)
+            switch (parameter.ToString())
             {
                 case "Passwords":
                     SelectedViewModel = _passwordsViewModel;

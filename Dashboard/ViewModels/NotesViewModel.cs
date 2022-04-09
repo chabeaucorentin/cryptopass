@@ -9,7 +9,7 @@ using SecureLibrary;
 
 namespace Dashboard.ViewModels
 {
-    public class NotesViewModel : BaseViewModel, IAddSecureObject
+    public class NotesViewModel : BaseViewModel, IManageSecureObject
     {
         #region MEMBER VARIABLES
         private NoteViewModel? _selectedNote;
@@ -20,6 +20,7 @@ namespace Dashboard.ViewModels
         {
             ListNotes = new ObservableCollection<NoteViewModel>();
             AddCommand = new DelegateCommand(Add);
+            RemoveCommand = new DelegateCommand(Remove, CanExecuteRemove);
         }
         #endregion
 
@@ -35,6 +36,10 @@ namespace Dashboard.ViewModels
         }
 
         public ObservableCollection<NoteViewModel> ListNotes { get; set; }
+
+        public DelegateCommand AddCommand { get; set; }
+
+        public DelegateCommand RemoveCommand { get; set; }
         #endregion
 
         #region METHODS
@@ -43,9 +48,20 @@ namespace Dashboard.ViewModels
             NoteViewModel NewNote = new(new Note());
             ListNotes.Add(NewNote);
             SelectedNote = NewNote;
+            RemoveCommand.RaiseCanExecuteChanged();
         }
 
-        public DelegateCommand AddCommand { get; set; }
+        public void Remove(object parameter)
+        {
+            ListNotes.Remove(SelectedNote);
+            SelectedNote = ListNotes.FirstOrDefault();
+            RemoveCommand.RaiseCanExecuteChanged();
+        }
+
+        public bool CanExecuteRemove(object parameter)
+        {
+            return ListNotes.Count > 0;
+        }
         #endregion
     }
 }

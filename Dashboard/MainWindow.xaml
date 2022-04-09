@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Dashboard"
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
-        Title="CryptoPass - Mots de passe" Height="600" Width="900" MinHeight="500" MinWidth="800" Background="#F0F0F0">
+        Title="{Binding Title}" Height="600" Width="900" MinHeight="500" MinWidth="800" Background="#F0F0F0">
     <Window.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>

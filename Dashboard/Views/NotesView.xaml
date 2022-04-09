@@ -32,7 +32,7 @@
                     <Label Margin="5,5,5,0">Nom</Label>
                     <TextBox x:Name="TextBoxName" Margin="10,0,10,0" Text="{Binding SelectedNote.Name, UpdateSourceTrigger=PropertyChanged}" />
                 </StackPanel>
-                <Button DockPanel.Dock="Bottom" x:Name="BtnDelete" Margin="10" Content="Supprimer" />
+                <Button DockPanel.Dock="Bottom" x:Name="BtnDelete" Margin="10" Content="Supprimer" Command="{Binding RemoveCommand}" />
                 <DockPanel>
                     <Label DockPanel.Dock="Top" Margin="5,5,5,0">Contenu</Label>
                     <TextBox x:Name="TextBoxContent" Height="Auto" HorizontalAlignment="Stretch" VerticalContentAlignment="Top"

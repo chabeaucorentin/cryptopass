@@ -9,7 +9,7 @@ using SecureLibrary;
 
 namespace Dashboard.ViewModels
 {
-    public class PaymentsViewModel : BaseViewModel, IAddSecureObject
+    public class PaymentsViewModel : BaseViewModel, IManageSecureObject
     {
         #region MEMBER VARIABLES
         private PaymentViewModel? _selectedPayment;
@@ -20,6 +20,7 @@ namespace Dashboard.ViewModels
         {
             ListPayments = new ObservableCollection<PaymentViewModel>();
             AddCommand = new DelegateCommand(Add);
+            RemoveCommand = new DelegateCommand(Remove, CanExecuteRemove);
         }
         #endregion
 
@@ -35,6 +36,10 @@ namespace Dashboard.ViewModels
         }
 
         public ObservableCollection<PaymentViewModel> ListPayments { get; set; }
+
+        public DelegateCommand AddCommand { get; set; }
+
+        public DelegateCommand RemoveCommand { get; set; }
         #endregion
 
         #region METHODS
@@ -43,9 +48,20 @@ namespace Dashboard.ViewModels
             PaymentViewModel NewPayment = new(new Payment());
             ListPayments.Add(NewPayment);
             SelectedPayment = NewPayment;
+            RemoveCommand.RaiseCanExecuteChanged();
         }
 
-        public DelegateCommand AddCommand { get; set; }
+        public void Remove(object parameter)
+        {
+            ListPayments.Remove(SelectedPayment);
+            SelectedPayment = ListPayments.FirstOrDefault();
+            RemoveCommand.RaiseCanExecuteChanged();
+        }
+
+        public bool CanExecuteRemove(object parameter)
+        {
+            return ListPayments.Count > 0;
+        }
         #endregion
     }
 }

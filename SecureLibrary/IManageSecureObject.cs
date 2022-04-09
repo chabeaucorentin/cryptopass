@@ -7,14 +7,20 @@ using CommonViewModels;
 
 namespace SecureLibrary
 {
-    public interface IAddSecureObject
+    public interface IManageSecureObject
     {
         #region GETTERS/SETTERS
         DelegateCommand AddCommand { get; set; }
+
+        DelegateCommand RemoveCommand { get; set; }
         #endregion
 
         #region METHODS
         void Add(object parameter);
+
+        void Remove(object parameter);
+
+        bool CanExecuteRemove(object parameter);
         #endregion
     }
 }

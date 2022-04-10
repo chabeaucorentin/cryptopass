@@ -11,7 +11,7 @@ namespace SecureLibrary
         #region MEMBER VARIABLES
         private string _number;
         private string _cvv;
-        private DateTime _date;
+        private DateOnly _date;
         #endregion
 
         #region CONSTRUCTORS
@@ -24,7 +24,7 @@ namespace SecureLibrary
                 year = DateTime.Now.Year;
             if (month < 0)
                 month = DateTime.Now.Month;
-            _date = new DateTime(year, month, 1);
+            _date = new DateOnly(year, month, 1);
         }
         #endregion
 
@@ -44,13 +44,13 @@ namespace SecureLibrary
         public int Year
         {
             get { return _date.Year; }
-            set { _date = new DateTime(value, _date.Month, 1); }
+            set { _date = new DateOnly(value, _date.Month, 1); }
         }
 
         public int Month
         {
             get { return _date.Month; }
-            set { _date = new DateTime(_date.Year, value, 1); }
+            set { _date = new DateOnly(_date.Year, value, 1); }
         }
         #endregion
     }

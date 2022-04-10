@@ -58,8 +58,11 @@ namespace Dashboard.ViewModels
 
         public void Remove(object parameter)
         {
-            ListPayments.Remove(SelectedPayment);
-            SelectedPayment = ListPayments.FirstOrDefault();
+            if (SelectedPayment != null)
+            {
+                ListPayments.Remove(SelectedPayment);
+                SelectedPayment = ListPayments.FirstOrDefault();
+            }
         }
         #endregion
     }

@@ -14,7 +14,8 @@
                     </Border>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsEnabled" Value="False">
-                            <Setter Property="Background" Value="#B0B0B0" />
+                            <Setter Property="Background" Value="#D3D3D3" />
+                            <Setter Property="Foreground" Value="#818181" />
                         </Trigger>
                         <Trigger Property="IsMouseOver" Value="True">
                             <Setter Property="Background" Value="#D1D1D1" />

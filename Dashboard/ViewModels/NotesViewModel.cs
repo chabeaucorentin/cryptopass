@@ -58,8 +58,11 @@ namespace Dashboard.ViewModels
 
         public void Remove(object parameter)
         {
-            ListNotes.Remove(SelectedNote);
-            SelectedNote = ListNotes.FirstOrDefault();
+            if (SelectedNote != null)
+            {
+                ListNotes.Remove(SelectedNote);
+                SelectedNote = ListNotes.FirstOrDefault();
+            }
         }
         #endregion
     }

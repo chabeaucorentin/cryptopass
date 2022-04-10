@@ -58,8 +58,11 @@ namespace Dashboard.ViewModels
 
         public void Remove(object parameter)
         {
-            ListPasswords.Remove(SelectedPassword);
-            SelectedPassword = ListPasswords.FirstOrDefault();
+            if (SelectedPassword != null)
+            {
+                ListPasswords.Remove(SelectedPassword);
+                SelectedPassword = ListPasswords.FirstOrDefault();
+            }
         }
         #endregion
     }

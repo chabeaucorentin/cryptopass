@@ -20,7 +20,7 @@ namespace Dashboard.ViewModels
         {
             ListNotes = new ObservableCollection<NoteViewModel>();
             AddCommand = new DelegateCommand(Add);
-            RemoveCommand = new DelegateCommand(Remove, CanExecuteRemove);
+            RemoveCommand = new DelegateCommand(Remove);
         }
         #endregion
 
@@ -32,7 +32,13 @@ namespace Dashboard.ViewModels
             {
                 _selectedNote = value;
                 OnPropertyChanged(nameof(SelectedNote));
+                OnPropertyChanged(nameof(IsSelectedNote));
             }
+        }
+
+        public bool IsSelectedNote
+        {
+            get { return SelectedNote != null; }
         }
 
         public ObservableCollection<NoteViewModel> ListNotes { get; set; }
@@ -48,19 +54,12 @@ namespace Dashboard.ViewModels
             NoteViewModel NewNote = new(new Note());
             ListNotes.Add(NewNote);
             SelectedNote = NewNote;
-            RemoveCommand.RaiseCanExecuteChanged();
         }
 
         public void Remove(object parameter)
         {
             ListNotes.Remove(SelectedNote);
             SelectedNote = ListNotes.FirstOrDefault();
-            RemoveCommand.RaiseCanExecuteChanged();
-        }
-
-        public bool CanExecuteRemove(object parameter)
-        {
-            return ListNotes.Count > 0;
         }
         #endregion
     }

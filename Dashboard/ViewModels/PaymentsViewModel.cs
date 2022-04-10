@@ -20,7 +20,7 @@ namespace Dashboard.ViewModels
         {
             ListPayments = new ObservableCollection<PaymentViewModel>();
             AddCommand = new DelegateCommand(Add);
-            RemoveCommand = new DelegateCommand(Remove, CanExecuteRemove);
+            RemoveCommand = new DelegateCommand(Remove);
         }
         #endregion
 
@@ -32,7 +32,13 @@ namespace Dashboard.ViewModels
             {
                 _selectedPayment = value;
                 OnPropertyChanged(nameof(SelectedPayment));
+                OnPropertyChanged(nameof(IsSelectedPayment));
             }
+        }
+
+        public bool IsSelectedPayment
+        {
+            get { return SelectedPayment != null; }
         }
 
         public ObservableCollection<PaymentViewModel> ListPayments { get; set; }
@@ -48,19 +54,12 @@ namespace Dashboard.ViewModels
             PaymentViewModel NewPayment = new(new Payment());
             ListPayments.Add(NewPayment);
             SelectedPayment = NewPayment;
-            RemoveCommand.RaiseCanExecuteChanged();
         }
 
         public void Remove(object parameter)
         {
             ListPayments.Remove(SelectedPayment);
             SelectedPayment = ListPayments.FirstOrDefault();
-            RemoveCommand.RaiseCanExecuteChanged();
-        }
-
-        public bool CanExecuteRemove(object parameter)
-        {
-            return ListPayments.Count > 0;
         }
         #endregion
     }

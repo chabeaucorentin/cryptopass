@@ -10,8 +10,8 @@ namespace Dashboard.ViewModels
     public class MainViewModel : BaseViewModel
     {
         #region MEMBER VARIABLES
-        private string _title;
-        private BaseViewModel _selectedViewModel;
+        private string? _title;
+        private BaseViewModel? _selectedViewModel;
         private readonly BaseViewModel _passwordsViewModel;
         private readonly BaseViewModel _notesViewModel;
         private readonly BaseViewModel _paymentsViewModel;
@@ -25,14 +25,13 @@ namespace Dashboard.ViewModels
             _notesViewModel = new NotesViewModel();
             _paymentsViewModel = new PaymentsViewModel();
             _generatorViewModel = new GeneratorViewModel();
-            _title = "CryptoPass - Mots de passe";
-            _selectedViewModel = _passwordsViewModel;
+            UpdateView("Passwords");
             UpdateViewCommand = new DelegateCommand(UpdateView);
         }
         #endregion
 
         #region GETTERS/SETTERS
-        public string Title
+        public string? Title
         {
             get { return _title; }
             set
@@ -42,7 +41,7 @@ namespace Dashboard.ViewModels
             }
         }
 
-        public BaseViewModel SelectedViewModel
+        public BaseViewModel? SelectedViewModel
         {
             get { return _selectedViewModel; }
             set {

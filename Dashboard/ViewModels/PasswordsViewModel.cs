@@ -19,11 +19,8 @@ namespace Dashboard.ViewModels
         public PasswordsViewModel()
         {
             ListPasswords = new ObservableCollection<PasswordViewModel>();
-            PasswordViewModel NewPass = new(new Password());
-            ListPasswords.Add(NewPass);
-            SelectedPassword = NewPass;
             AddCommand = new DelegateCommand(Add);
-            RemoveCommand = new DelegateCommand(Remove, CanExecuteRemove);
+            RemoveCommand = new DelegateCommand(Remove);
         }
         #endregion
 
@@ -35,7 +32,13 @@ namespace Dashboard.ViewModels
             {
                 _selectedPassword = value;
                 OnPropertyChanged(nameof(SelectedPassword));
+                OnPropertyChanged(nameof(IsSelectedPassword));
             }
+        }
+
+        public bool IsSelectedPassword
+        {
+            get { return SelectedPassword != null; }
         }
 
         public ObservableCollection<PasswordViewModel> ListPasswords { get; set; }
@@ -51,19 +54,12 @@ namespace Dashboard.ViewModels
             PasswordViewModel NewPass = new(new Password());
             ListPasswords.Add(NewPass);
             SelectedPassword = NewPass;
-            RemoveCommand.RaiseCanExecuteChanged();
         }
 
         public void Remove(object parameter)
         {
             ListPasswords.Remove(SelectedPassword);
             SelectedPassword = ListPasswords.FirstOrDefault();
-            RemoveCommand.RaiseCanExecuteChanged();
-        }
-
-        public bool CanExecuteRemove(object parameter)
-        {
-            return ListPasswords.Count > 0;
         }
         #endregion
     }

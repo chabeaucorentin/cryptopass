@@ -19,8 +19,6 @@ namespace SecureLibrary
         void Add(object parameter);
 
         void Remove(object parameter);
-
-        bool CanExecuteRemove(object parameter);
         #endregion
     }
 }

@@ -1,0 +1,59 @@
+﻿<UserControl x:Class="Views.Dashboard.PaymentsView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Views.Dashboard"
+             mc:Ignorable="d" 
+             d:DesignHeight="500" d:DesignWidth="700" Background="#FFF">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition MaxWidth="350" />
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Right">
+            <Button Margin="10" Padding="10,0,10,0" Content="Ajouter un moyen de paiement" Command="{Binding AddCommand}" />
+        </StackPanel>
+
+        <DataGrid Grid.Row="1" Grid.Column="0" Margin="10,0,5,10" ItemsSource="{Binding ListPayments}" SelectedItem="{Binding SelectedPayment, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Titulaire" Width="40*" Binding="{Binding Name}" />
+                <DataGridTextColumn Header="Numéro de carte" Width="60*" Binding="{Binding Number}" />
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <Border Grid.Row="1" Grid.Column="1" BorderBrush="#9A9696" BorderThickness="1" Margin="5,0,10,10">
+            <DockPanel>
+                <Button DockPanel.Dock="Bottom" x:Name="BtnDelete" Margin="10" Content="Supprimer" Command="{Binding RemoveCommand}" IsEnabled="{Binding IsSelectedPayment}" />
+                <StackPanel>
+                    <Label Margin="5,5,5,0">Titulaire de la carte</Label>
+                    <TextBox x:Name="TextBoxName" Margin="10,0,10,0" Text="{Binding SelectedPayment.Name, UpdateSourceTrigger=PropertyChanged}" IsEnabled="{Binding IsSelectedPayment}" />
+                    <Label Margin="5,5,5,0">Numéro de carte</Label>
+                    <TextBox x:Name="TextBoxLogin" Margin="10,0,10,0" Text="{Binding SelectedPayment.Number, UpdateSourceTrigger=PropertyChanged}" IsEnabled="{Binding IsSelectedPayment}" />
+                    <Label Margin="5,5,5,0">Code de sécurité</Label>
+                    <TextBox x:Name="TextBoxPassword" Margin="10,0,10,0" Text="{Binding SelectedPayment.Cvv, UpdateSourceTrigger=PropertyChanged}" IsEnabled="{Binding IsSelectedPayment}" />
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+
+                        <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Margin="5,5,5,0">Date d'expiration</Label>
+                        <TextBox x:Name="TextBoxMonth" Grid.Row="1" Grid.Column="0" Margin="10,0,5,0" Text="{Binding SelectedPayment.Month, UpdateSourceTrigger=LostFocus}" IsEnabled="{Binding IsSelectedPayment}" />
+                        <TextBox x:Name="TextBoxYear" Grid.Row="1" Grid.Column="1" Margin="5,0,10,0" Text="{Binding SelectedPayment.Year, UpdateSourceTrigger=LostFocus}" IsEnabled="{Binding IsSelectedPayment}" />
+                    </Grid>
+                </StackPanel>
+            </DockPanel>
+        </Border>
+    </Grid>
+</UserControl>

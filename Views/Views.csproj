@@ -1,0 +1,32 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Welcome\Images\dashboard.png" />
+    <None Remove="Welcome\Images\note.png" />
+    <None Remove="Welcome\Images\password.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ViewModels\ViewModels.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Welcome\Images\dashboard.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Welcome\Images\note.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Welcome\Images\password.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+
+</Project>

@@ -30,12 +30,12 @@
             <DockPanel>
                 <StackPanel DockPanel.Dock="Top">
                     <Label Margin="5,5,5,0">Nom</Label>
-                    <TextBox x:Name="TextBoxName" Margin="10,0,10,0" Text="{Binding SelectedNote.Name, UpdateSourceTrigger=PropertyChanged}" IsEnabled="{Binding IsSelectedNote}" />
+                    <TextBox Margin="10,0,10,0" Text="{Binding SelectedNote.Name, UpdateSourceTrigger=PropertyChanged}" IsEnabled="{Binding IsSelectedNote}" />
                 </StackPanel>
-                <Button DockPanel.Dock="Bottom" x:Name="BtnDelete" Margin="10" Content="Supprimer" Command="{Binding RemoveCommand}" IsEnabled="{Binding IsSelectedNote}" />
+                <Button DockPanel.Dock="Bottom" Margin="10" Content="Supprimer" Command="{Binding RemoveCommand}" IsEnabled="{Binding IsSelectedNote}" />
                 <DockPanel>
                     <Label DockPanel.Dock="Top" Margin="5,5,5,0">Contenu</Label>
-                    <TextBox x:Name="TextBoxContent" Height="Auto" HorizontalAlignment="Stretch" VerticalContentAlignment="Top"
+                    <TextBox Height="Auto" HorizontalAlignment="Stretch" VerticalContentAlignment="Top"
                              TextWrapping="Wrap" AcceptsReturn="True" VerticalScrollBarVisibility="Visible" Margin="10,0,10,0"
                              Text="{Binding SelectedNote.Content, UpdateSourceTrigger=PropertyChanged}" IsEnabled="{Binding IsSelectedNote}" />
                 </DockPanel>

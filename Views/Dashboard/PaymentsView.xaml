@@ -29,14 +29,14 @@
 
         <Border Grid.Row="1" Grid.Column="1" BorderBrush="#9A9696" BorderThickness="1" Margin="5,0,10,10">
             <DockPanel>
-                <Button DockPanel.Dock="Bottom" x:Name="BtnDelete" Margin="10" Content="Supprimer" Command="{Binding RemoveCommand}" IsEnabled="{Binding IsSelectedPayment}" />
+                <Button DockPanel.Dock="Bottom" Margin="10" Content="Supprimer" Command="{Binding RemoveCommand}" IsEnabled="{Binding IsSelectedPayment}" />
                 <StackPanel>
                     <Label Margin="5,5,5,0">Titulaire de la carte</Label>
-                    <TextBox x:Name="TextBoxName" Margin="10,0,10,0" Text="{Binding SelectedPayment.Name, UpdateSourceTrigger=PropertyChanged}" IsEnabled="{Binding IsSelectedPayment}" />
+                    <TextBox Margin="10,0,10,0" Text="{Binding SelectedPayment.Name, UpdateSourceTrigger=PropertyChanged}" IsEnabled="{Binding IsSelectedPayment}" />
                     <Label Margin="5,5,5,0">Numéro de carte</Label>
-                    <TextBox x:Name="TextBoxLogin" Margin="10,0,10,0" Text="{Binding SelectedPayment.Number, UpdateSourceTrigger=PropertyChanged}" IsEnabled="{Binding IsSelectedPayment}" />
+                    <TextBox Margin="10,0,10,0" Text="{Binding SelectedPayment.Number, UpdateSourceTrigger=PropertyChanged}" IsEnabled="{Binding IsSelectedPayment}" />
                     <Label Margin="5,5,5,0">Code de sécurité</Label>
-                    <TextBox x:Name="TextBoxPassword" Margin="10,0,10,0" Text="{Binding SelectedPayment.Cvv, UpdateSourceTrigger=PropertyChanged}" IsEnabled="{Binding IsSelectedPayment}" />
+                    <TextBox Margin="10,0,10,0" Text="{Binding SelectedPayment.Cvv, UpdateSourceTrigger=PropertyChanged}" IsEnabled="{Binding IsSelectedPayment}" />
                     <Grid>
                         <Grid.RowDefinitions>
                             <RowDefinition Height="Auto" />
@@ -49,8 +49,8 @@
                         </Grid.ColumnDefinitions>
 
                         <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Margin="5,5,5,0">Date d'expiration</Label>
-                        <TextBox x:Name="TextBoxMonth" Grid.Row="1" Grid.Column="0" Margin="10,0,5,0" Text="{Binding SelectedPayment.Month, UpdateSourceTrigger=LostFocus}" IsEnabled="{Binding IsSelectedPayment}" />
-                        <TextBox x:Name="TextBoxYear" Grid.Row="1" Grid.Column="1" Margin="5,0,10,0" Text="{Binding SelectedPayment.Year, UpdateSourceTrigger=LostFocus}" IsEnabled="{Binding IsSelectedPayment}" />
+                        <TextBox Grid.Row="1" Grid.Column="0" Margin="10,0,5,0" Text="{Binding SelectedPayment.Month, UpdateSourceTrigger=LostFocus}" IsEnabled="{Binding IsSelectedPayment}" />
+                        <TextBox Grid.Row="1" Grid.Column="1" Margin="5,0,10,0" Text="{Binding SelectedPayment.Year, UpdateSourceTrigger=LostFocus}" IsEnabled="{Binding IsSelectedPayment}" />
                     </Grid>
                 </StackPanel>
             </DockPanel>

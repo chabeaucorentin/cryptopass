@@ -5,16 +5,16 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Views.Welcome"
              mc:Ignorable="d" 
-             d:DesignHeight="485" d:DesignWidth="387" Background="#FFF">
+             d:DesignHeight="465" d:DesignWidth="380" Background="#FFF">
     <StackPanel VerticalAlignment="Center">
         <Label FontSize="40" FontWeight="Bold" HorizontalAlignment="Center">CryptoPass</Label>
-        <Label FontSize="20" HorizontalAlignment="Center" Margin="0,15,0,0">Bienvenue dans CryptoPass !</Label>
-        <Image Source="Images/dashboard.png" Width="150" Margin="0,40,0,0" />
-        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,35,0,0">
+        <Label FontSize="20" HorizontalAlignment="Center" Margin="0,14,0,0">Bienvenue dans CryptoPass !</Label>
+        <Image Source="Images/dashboard.png" Width="150" Margin="0,30,0,0" />
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,30,0,0">
             <Label Foreground="#646464"  FontSize="15" FontFamily="Segoe MDL2 Assets" Margin="0,0,8,0" Content="&#xF63C;" />
             <Label Foreground="#BAB8B8" FontSize="15" FontFamily="Segoe MDL2 Assets" Margin="8,0,8,0" Content="&#xF63C;" />
             <Label Foreground="#BAB8B8" FontSize="15" FontFamily="Segoe MDL2 Assets" Margin="8,0,0,0" Content="&#xF63C;" />
         </StackPanel>
-        <Button x:Name="BtnNext" FontSize="18" Height="40" Margin="20,35,20,0" Content="Suivant" Command="{Binding UpdateViewCommand}" />
+        <Button Margin="20,30,20,0" Content="Suivant" Command="{Binding UpdateViewCommand}" />
     </StackPanel>
 </UserControl>

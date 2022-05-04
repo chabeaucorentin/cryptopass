@@ -9,13 +9,13 @@
         mc:Ignorable="d"
         ResizeMode="NoResize"
         WindowStartupLocation="CenterScreen"
-        Title="CryptoPass - Bienvenue" Height="520" Width="400">
+        Title="CryptoPass - Bienvenue" Height="489" Width="395">
     <Window.Resources>
         <ResourceDictionary>
-            <!--<ResourceDictionary.MergedDictionaries>
+            <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="Dictionaries/ButtonsDictionary.xaml" />
                 <ResourceDictionary Source="Dictionaries/FormDictionary.xaml" />
-            </ResourceDictionary.MergedDictionaries>-->
+            </ResourceDictionary.MergedDictionaries>
             <DataTemplate DataType="{x:Type viewmodels:Welcome1ViewModel}">
                 <views:Welcome1View />
             </DataTemplate>

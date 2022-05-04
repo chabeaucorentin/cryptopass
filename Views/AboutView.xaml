@@ -8,15 +8,6 @@
         ResizeMode="NoResize"
         WindowStartupLocation="CenterOwner"
         Title="CryptoPass - À propos" Height="310" Width="550">
-    <!--<Window.Resources>
-        <ResourceDictionary>
-            <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="Dictionaries/ButtonsDictionary.xaml" />
-                <ResourceDictionary Source="Dictionaries/FormDictionary.xaml" />
-            </ResourceDictionary.MergedDictionaries>
-        </ResourceDictionary>
-    </Window.Resources>-->
-
     <Grid>
         <StackPanel VerticalAlignment="Center">
             <Label FontSize="40" FontWeight="Bold" HorizontalAlignment="Center">CryptoPass</Label>

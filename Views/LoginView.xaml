@@ -7,22 +7,22 @@
         mc:Ignorable="d"
         ResizeMode="NoResize"
         WindowStartupLocation="CenterScreen"
-        Title="CryptoPass - Connexion" Height="295" Width="400">
-    <!--<Window.Resources>
+        Title="CryptoPass - Connexion" Height="264" Width="395">
+    <Window.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="Dictionaries/ButtonsDictionary.xaml" />
                 <ResourceDictionary Source="Dictionaries/FormDictionary.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
-    </Window.Resources>-->
+    </Window.Resources>
 
     <Grid>
-        <StackPanel MaxHeight="485" MaxWidth="387" VerticalAlignment="Center">
+        <StackPanel MaxHeight="485" MaxWidth="382" VerticalAlignment="Center">
             <Label FontSize="40" FontWeight="Bold" HorizontalAlignment="Center">CryptoPass</Label>
-            <Label FontSize="20" Margin="15,15,15,0">Mot de passe maître</Label>
-            <TextBox x:Name="TextBoxMaster" FontSize="25" Margin="20,5,20,0" />
-            <Button x:Name="BtnAccess" FontSize="18" Height="40" Margin="20,20,20,0" Content="Déverouiller" />
+            <Label Margin="15,15,15,0">Mot de passe maître</Label>
+            <TextBox Margin="20,0,20,0" />
+            <Button Margin="20,20,20,0" Content="Déverouiller" />
         </StackPanel>
     </Grid>
 </Window>

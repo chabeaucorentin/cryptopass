@@ -52,8 +52,8 @@
                 <Separator />
                 <MenuItem x:Name="BtnExit" Header="Quitter" />
             </MenuItem>
-            <MenuItem x:Name="BtnSettings" Header="Paramètres" />
-            <MenuItem x:Name="BtnAbout" Header="À propos" />
+            <MenuItem x:Name="BtnSettings" Header="Paramètres" Click="BtnSettings_Click" />
+            <MenuItem x:Name="BtnAbout" Header="À propos" Click="BtnAbout_Click" />
         </Menu>
 
         <Grid>

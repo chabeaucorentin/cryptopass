@@ -13,5 +13,18 @@ namespace Views
     /// </summary>
     public partial class App : Application
     {
+        public App()
+        {
+            DashboardView d = new();
+            d.Show();
+            WelcomeView w = new();
+            w.Show();
+            AboutView a = new();
+            a.Show();
+            LoginView l = new();
+            l.Show();
+            SettingsView s = new();
+            s.Show();
+        }
     }
 }

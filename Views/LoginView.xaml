@@ -21,7 +21,7 @@
         <StackPanel MaxHeight="485" MaxWidth="382" VerticalAlignment="Center">
             <Label FontSize="40" FontWeight="Bold" HorizontalAlignment="Center">CryptoPass</Label>
             <Label Margin="15,15,15,0">Mot de passe maître</Label>
-            <TextBox Margin="20,0,20,0" />
+            <PasswordBox Margin="20,0,20,0" />
             <Button Margin="20,20,20,0" Content="Déverouiller" />
         </StackPanel>
     </Grid>

@@ -25,5 +25,17 @@ namespace Views
             InitializeComponent();
             DataContext = new MainViewModel();
         }
+
+        private void BtnSettings_Click(object sender, RoutedEventArgs e)
+        {
+            SettingsView s = new ();
+            s.ShowDialog();
+        }
+
+        private void BtnAbout_Click(object sender, RoutedEventArgs e)
+        {
+            AboutView a = new ();
+            a.ShowDialog();
+        }
     }
 }

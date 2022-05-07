@@ -37,5 +37,12 @@ namespace Views
             AboutView a = new ();
             a.ShowDialog();
         }
+
+        private void BtnLogout_Click(object sender, RoutedEventArgs e)
+        {
+            LoginView l = new ();
+            l.Show();
+            Close();
+        }
     }
 }

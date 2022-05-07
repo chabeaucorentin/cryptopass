@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using ViewModels;
 
 namespace Views
 {
@@ -22,6 +23,24 @@ namespace Views
         public LoginView()
         {
             InitializeComponent();
+        }
+
+        private void BtnUnlock_Click(object sender, RoutedEventArgs e)
+        {
+            if (PasswordBoxPass.Password.Length == 0)
+            {
+                MessageBox.Show("Le mot de passe ne peut pas être vide !", "CryptoPass", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            else if (!AppSettings.CheckPass(PasswordBoxPass.Password))
+            {
+                MessageBox.Show("Le mot de passe entré est incorrect !", "CryptoPass", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            else
+            {
+                DashboardView d = new();
+                d.Show();
+                Close();
+            }
         }
     }
 }

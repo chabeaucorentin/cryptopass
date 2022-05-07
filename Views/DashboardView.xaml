@@ -64,7 +64,7 @@
 
             <Border Grid.Column="0" BorderBrush="#9A9696"  BorderThickness="0,0,1,0">
                 <DockPanel>
-                    <Button DockPanel.Dock="Bottom" Content="Déconnexion" Style="{StaticResource BtnLogout}" />
+                    <Button x:Name="BtnLogout" DockPanel.Dock="Bottom" Content="Déconnexion" Style="{StaticResource BtnLogout}" Click="BtnLogout_Click" />
                     <StackPanel>
                         <Button Content="Mots de passe" Style="{StaticResource BtnSideBar}" Command="{Binding UpdateViewCommand}" CommandParameter="Passwords" />
                         <Button Content="Notes sécurisées" Style="{StaticResource BtnSideBar}" Command="{Binding UpdateViewCommand}" CommandParameter="Notes" />

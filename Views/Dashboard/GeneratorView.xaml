@@ -10,23 +10,23 @@
         <StackPanel>
             <Label Margin="5,5,5,0">Code généré</Label>
             <DockPanel>
-                <Button DockPanel.Dock="Right" Height="25" FontFamily="Segoe MDL2 Assets" Padding="10,0,10,0" Margin="0,0,10,0" Content="&#xE72C;" />
-                <TextBox IsReadOnly="True" Margin="10,0,10,0" Text="sfPN8qi9CNxatfgm" />
+                <Button DockPanel.Dock="Right" Height="25" FontFamily="Segoe MDL2 Assets" Padding="10,0,10,0" Margin="0,0,10,0" Content="&#xE72C;" Command="{Binding GenerateCommand}" />
+                <TextBox IsReadOnly="True" Margin="10,0,10,0" Text="{Binding Password}" />
             </DockPanel>
             <GroupBox Header="Personnalisation" FontSize="15" Margin="10">
                 <StackPanel>
-                    <Label Margin="5,5,5,0">Longueur (16)</Label>
-                    <Slider Minimum="4" Maximum="40" TickFrequency="1" Value="16" Margin="5,5,5,0" />
+                    <Label Margin="5,5,5,0" Content="{Binding LengthText}" />
+                    <Slider Minimum="4" Maximum="40" TickFrequency="1" Value="{Binding Length, UpdateSourceTrigger=PropertyChanged}" Margin="5,5,5,0" />
                     <DockPanel>
                         <Label DockPanel.Dock="Right" Margin="5,0,5,0">40</Label>
                         <Label Margin="5,0,5,0">4</Label>
                     </DockPanel>
                     <Border BorderBrush="#9A9696" BorderThickness="0,1,0,0" Padding="0,5,0,0" Margin="10">
                         <StackPanel>
-                            <CheckBox Content="Chiffres" />
-                            <CheckBox Content="Lettres minuscules" />
-                            <CheckBox Content="Lettres majuscules" />
-                            <CheckBox Content="Caractères spéciaux" />
+                            <CheckBox Content="Chiffres (Ex : 012)" IsChecked="{Binding UseNumbers, UpdateSourceTrigger=PropertyChanged}" />
+                            <CheckBox Content="Lettres minuscules (Ex : abc)" IsChecked="{Binding UseLowLetters, UpdateSourceTrigger=PropertyChanged}" />
+                            <CheckBox Content="Lettres majuscules (Ex : ABC)" IsChecked="{Binding UseCapLetters, UpdateSourceTrigger=PropertyChanged}" />
+                            <CheckBox Content="Caractères spéciaux (@&amp;$!#?)" IsChecked="{Binding UseSpecialChar, UpdateSourceTrigger=PropertyChanged}" />
                         </StackPanel>
                     </Border>
                 </StackPanel>

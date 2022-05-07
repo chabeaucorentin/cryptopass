@@ -10,8 +10,11 @@ namespace ViewModels
 {
     public static class AppSettings
     {
+        #region MEMBER VARIABLES
         private static readonly RegistryKey rk = Registry.CurrentUser.CreateSubKey("Software").CreateSubKey("CryptoPass");
+        #endregion
 
+        #region METHODS
         public static object GetValue(string key)
         {
             return rk.GetValue(key);
@@ -41,5 +44,6 @@ namespace ViewModels
 
             return Convert.ToBase64String(hash);
         }
+        #endregion
     }
 }

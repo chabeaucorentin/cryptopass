@@ -3,29 +3,20 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Models;
 
 namespace ViewModels.Dashboard
 {
     public class GeneratorViewModel : BaseViewModel
     {
         #region MEMBER VARIABLES
-        private int _length;
-        private bool _useNumbers;
-        private bool _useLowLetters;
-        private bool _useCapLetters;
-        private bool _useSpecialChar;
-        private string? _password;
+        private readonly Generate _generate;
         #endregion
 
         #region CONSTRUCTORS
         public GeneratorViewModel()
         {
-            _length = 16;
-            _useNumbers = true;
-            _useLowLetters = true;
-            _useCapLetters = true;
-            _useSpecialChar = false;
-            Generate();
+            _generate = new Generate();
             GenerateCommand = new DelegateCommand(Generate);
         }
         #endregion
@@ -33,17 +24,17 @@ namespace ViewModels.Dashboard
         #region GETTERS/SETTERS
         public string LengthText
         {
-            get { return "Longueur (" + _length + ")"; }
+            get { return "Longueur (" + _generate.Length + ")"; }
         }
 
         public int Length
         {
-            get { return _length; }
+            get { return _generate.Length; }
             set
             {
-                if (_length != value)
+                if (_generate.Length != value)
                 {
-                    _length = value;
+                    _generate.Length = value;
                     Generate();
                     OnPropertyChanged(nameof(Length));
                     OnPropertyChanged(nameof(LengthText));
@@ -53,10 +44,10 @@ namespace ViewModels.Dashboard
 
         public bool UseNumbers
         {
-            get { return _useNumbers; }
+            get { return _generate.UseNumbers; }
             set
             {
-                _useNumbers = value;
+                _generate.UseNumbers = value;
                 Generate();
                 OnPropertyChanged(nameof(UseNumbers));
             }
@@ -64,10 +55,10 @@ namespace ViewModels.Dashboard
 
         public bool UseLowLetters
         {
-            get { return _useLowLetters; }
+            get { return _generate.UseLowLetters; }
             set
             {
-                _useLowLetters = value;
+                _generate.UseLowLetters = value;
                 Generate();
                 OnPropertyChanged(nameof(UseLowLetters));
             }
@@ -75,10 +66,10 @@ namespace ViewModels.Dashboard
 
         public bool UseCapLetters
         {
-            get { return _useCapLetters; }
+            get { return _generate.UseCapLetters; }
             set
             {
-                _useCapLetters = value;
+                _generate.UseCapLetters = value;
                 Generate();
                 OnPropertyChanged(nameof(UseCapLetters));
             }
@@ -86,23 +77,18 @@ namespace ViewModels.Dashboard
 
         public bool UseSpecialChar
         {
-            get { return _useSpecialChar; }
+            get { return _generate.UseSpecialChar; }
             set
             {
-                _useSpecialChar = value;
+                _generate.UseSpecialChar = value;
                 Generate();
                 OnPropertyChanged(nameof(UseSpecialChar));
             }
         }
 
-        public string? Password
+        public string Password
         {
-            get { return _password; }
-            set
-            {
-                _password = value;
-                OnPropertyChanged(nameof(Password));
-            }
+            get { return _generate.GeneratePass(); }
         }
 
         public DelegateCommand GenerateCommand { get; set; }
@@ -111,36 +97,7 @@ namespace ViewModels.Dashboard
         #region METHODS
         public void Generate(object? parameter = null)
         {
-            string pass = "";
-            string characters = "";
-            Random rand = new Random();
-
-            if (_useNumbers)
-            {
-                characters += "0123456789";
-            }
-            if (_useLowLetters)
-            {
-                characters += "abcdefghijklmnopkrstuvwxyz";
-            }
-            if (_useCapLetters)
-            {
-                characters += "ABCDEFGHIJKLMNOPKRSTUVWXYZ";
-            }
-            if (_useSpecialChar)
-            {
-                characters += "@&$!#?";
-            }
-
-            if (characters.Length > 0)
-            {
-                for (int i = 0; i < _length; i++)
-                {
-                    pass += characters[rand.Next(characters.Length)];
-                }
-            }
-
-            Password = pass;
+            OnPropertyChanged(nameof(Password));
         }
         #endregion
     }

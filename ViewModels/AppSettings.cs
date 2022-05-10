@@ -15,12 +15,12 @@ namespace ViewModels
         #endregion
 
         #region METHODS
-        public static object GetValue(string key)
+        private static object GetValue(string key)
         {
             return rk.GetValue(key);
         }
 
-        public static void SetValue(string key, string value)
+        private static void SetValue(string key, string value)
         {
             rk.SetValue(key, value);
         }
@@ -30,9 +30,24 @@ namespace ViewModels
             SetValue("Password", GetHash(pass));
         }
 
+        public static bool PassExist()
+        {
+            return GetValue("Password") != null;
+        }
+
         public static bool CheckPass(string pass)
         {
             return GetValue("Password").Equals(GetHash(pass));
+        }
+
+        public static void SetPath(string path)
+        {
+            SetValue("Path", path);
+        }
+
+        public static string GetPath()
+        {
+            return (string)GetValue("Path");
         }
 
         public static string GetHash(string text)

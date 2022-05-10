@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         ResizeMode="NoResize"
         WindowStartupLocation="CenterScreen"
-        Title="CryptoPass - Paramètres" Height="382" Width="350" Background="#F0F0F0">
+        Title="CryptoPass - Paramètres" Height="376" Width="350" Background="#F0F0F0">
     <Window.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
@@ -28,13 +28,16 @@
             <TabControl Margin="8,15,8,8">
                 <TabItem Header="Données">
                     <StackPanel>
-                        <Label Margin="0,5,0,0">Source des données</Label>
-                        <TextBox x:Name="TextBoxData" Margin="5,0,5,0" />
+                        <Label>Source des données</Label>
+                        <DockPanel>
+                            <Button DockPanel.Dock="Right" Height="25" Width="30" Margin="3,0,5,0" Content="..." Command="{Binding SelectPathCommand}" />
+                            <TextBox Margin="5,0,5,0" Text="{Binding Path, Mode=OneWay}" IsReadOnly="True" />
+                        </DockPanel>
                     </StackPanel>
                 </TabItem>
                 <TabItem Header="Mot de passe">
                     <StackPanel>
-                        <Label Margin="0,5,0,0">Ancien mot de passe</Label>
+                        <Label>Ancien mot de passe</Label>
                         <PasswordBox x:Name="PasswordBoxLastPassword" Margin="5,0,5,0" />
                         <Label Margin="0,5,0,0">Nouveau mot de passe</Label>
                         <PasswordBox x:Name="PasswordBoxNewPassword" Margin="5,0,5,0" />

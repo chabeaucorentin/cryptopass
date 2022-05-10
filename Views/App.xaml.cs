@@ -16,15 +16,15 @@ namespace Views
     {
         public App()
         {
-            if (AppSettings.GetValue("Password") == null)
-            {
-                WelcomeView w = new();
-                w.Show();
-            }
-            else
+            if (AppSettings.PassExist())
             {
                 LoginView l = new();
                 l.Show();
+            }
+            else
+            {
+                WelcomeView w = new();
+                w.Show();
             }
         }
     }

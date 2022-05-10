@@ -50,6 +50,11 @@ namespace ViewModels
             return (string)GetValue("Path");
         }
 
+        public static bool PathExist()
+        {
+            return GetValue("Path") != null && Directory.Exists(GetPath());
+        }
+
         public static string GetHash(string text)
         {
             byte[] saltedHashBytes = Encoding.UTF8.GetBytes(text);

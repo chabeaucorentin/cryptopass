@@ -19,9 +19,9 @@
 
     <DockPanel>
         <StackPanel DockPanel.Dock="Bottom" Orientation="Horizontal" HorizontalAlignment="Right">
-            <Button Margin="0,8,4,8" Content="OK" Style="{StaticResource BtnSetting}" />
-            <Button Margin="4,8,4,8" Content="Annuler" Style="{StaticResource BtnSetting}" />
-            <Button Margin="4,8,8,8" Content="Appliquer" Style="{StaticResource BtnSetting}" />
+            <Button x:Name="BtnOK" Margin="0,8,4,8" Content="OK" Style="{StaticResource BtnSetting}" Click="BtnOK_Click" />
+            <Button x:Name="BtnCancel" Margin="4,8,4,8" Content="Annuler" Style="{StaticResource BtnSetting}" Click="BtnCancel_Click" />
+            <Button x:Name="BtnApply" Margin="4,8,8,8" Content="Appliquer" Style="{StaticResource BtnSetting}" Click="BtnApply_Click" />
         </StackPanel>
         <DockPanel Background="#FFF">
             <Label DockPanel.Dock="Top" FontSize="40" FontWeight="Bold" HorizontalAlignment="Center" Margin="0,10,0,0">CryptoPass</Label>
@@ -30,8 +30,8 @@
                     <StackPanel>
                         <Label>Source des données</Label>
                         <DockPanel>
-                            <Button DockPanel.Dock="Right" Height="25" Width="30" Margin="3,0,5,0" Content="..." Command="{Binding SelectPathCommand}" />
-                            <TextBox Margin="5,0,5,0" Text="{Binding Path, Mode=OneWay}" IsReadOnly="True" />
+                            <Button DockPanel.Dock="Right" x:Name="BtnSelectPath" Height="25" Width="30" Margin="3,0,5,0" Content="..." Click="BtnSelectPath_Click" />
+                            <TextBox x:Name="TextBoxPath" Margin="5,0,5,0" IsReadOnly="True" Text="C:\Users\chabeaucorentin\" />
                         </DockPanel>
                     </StackPanel>
                 </TabItem>

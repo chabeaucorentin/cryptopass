@@ -23,6 +23,7 @@ namespace Views
         public SettingsView()
         {
             InitializeComponent();
+            TextBoxPath.Text = AppSettings.GetPath();
         }
 
         private bool UpdateSettings()
@@ -58,7 +59,14 @@ namespace Views
 
         private void BtnSelectPath_Click(object sender, RoutedEventArgs e)
         {
-            //CODE
+            System.Windows.Forms.FolderBrowserDialog folderBrowserDialog = new ();
+            folderBrowserDialog.SelectedPath = TextBoxPath.Text;
+            System.Windows.Forms.DialogResult result = folderBrowserDialog.ShowDialog();
+
+            if (result == System.Windows.Forms.DialogResult.OK)
+            {
+                TextBoxPath.Text = folderBrowserDialog.SelectedPath;
+            }
         }
 
         private void BtnOK_Click(object sender, RoutedEventArgs e)

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
+using System.Text.Json;
 using System.Threading.Tasks;
 using Models;
 
@@ -61,6 +62,41 @@ namespace ViewModels.Dashboard
             {
                 ListPasswords.Remove(SelectedPassword);
                 SelectedPassword = ListPasswords.FirstOrDefault();
+            }
+        }
+
+        public void Load(string? file = null)
+        {
+            string fileName = file ?? (AppSettings.GetPath() + @"\Passwords.json");
+            if (File.Exists(fileName))
+            {
+                string jsonString = File.ReadAllText(fileName);
+                List<Password>? passwords = JsonSerializer.Deserialize<List<Password>>(jsonString);
+                if (passwords != null)
+                {
+                    foreach (Password pass in passwords)
+                    {
+                        ListPasswords.Add(new PasswordViewModel(pass));
+                    }
+                    if (ListPasswords.Count > 0)
+                    {
+                        SelectedPassword = ListPasswords.First();
+                    }
+                }
+            }
+        }
+
+        public void Save(string? file = null)
+        {
+            string fileName = file ?? (AppSettings.GetPath() + @"\Passwords.json");
+            if (ListPasswords.Count > 0)
+            {
+                string jsonString = JsonSerializer.Serialize(ListPasswords);
+                File.WriteAllText(fileName, jsonString);
+            }
+            else if (File.Exists(fileName))
+            {
+                File.Delete(fileName);
             }
         }
         #endregion

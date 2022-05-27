@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
+using System.Text.Json;
 using System.Threading.Tasks;
 using Models;
 
@@ -61,6 +62,41 @@ namespace ViewModels.Dashboard
             {
                 ListNotes.Remove(SelectedNote);
                 SelectedNote = ListNotes.FirstOrDefault();
+            }
+        }
+
+        public void Load(string? file = null)
+        {
+            string fileName = file ?? (AppSettings.GetPath() + @"\Notes.json");
+            if (File.Exists(fileName))
+            {
+                string jsonString = File.ReadAllText(fileName);
+                List<Note>? notes = JsonSerializer.Deserialize<List<Note>>(jsonString);
+                if (notes != null)
+                {
+                    foreach (Note note in notes)
+                    {
+                        ListNotes.Add(new NoteViewModel(note));
+                    }
+                    if (ListNotes.Count > 0)
+                    {
+                        SelectedNote = ListNotes.First();
+                    }
+                }
+            }
+        }
+
+        public void Save(string? file = null)
+        {
+            string fileName = file ?? (AppSettings.GetPath() + @"\Notes.json");
+            if (ListNotes.Count > 0)
+            {
+                string jsonString = JsonSerializer.Serialize(ListNotes);
+                File.WriteAllText(fileName, jsonString);
+            }
+            else if (File.Exists(fileName))
+            {
+                File.Delete(fileName);
             }
         }
         #endregion

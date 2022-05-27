@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
+using System.Text.Json;
 using System.Threading.Tasks;
 using Models;
 
@@ -61,6 +62,41 @@ namespace ViewModels.Dashboard
             {
                 ListPayments.Remove(SelectedPayment);
                 SelectedPayment = ListPayments.FirstOrDefault();
+            }
+        }
+
+        public void Load(string? file = null)
+        {
+            string fileName = file ?? (AppSettings.GetPath() + @"\Payments.json");
+            if (File.Exists(fileName))
+            {
+                string jsonString = File.ReadAllText(fileName);
+                List<Payment>? payments = JsonSerializer.Deserialize<List<Payment>>(jsonString);
+                if (payments != null)
+                {
+                    foreach (Payment payment in payments)
+                    {
+                        ListPayments.Add(new PaymentViewModel(payment));
+                    }
+                    if (ListPayments.Count > 0)
+                    {
+                        SelectedPayment = ListPayments.First();
+                    }
+                }
+            }
+        }
+
+        public void Save(string? file = null)
+        {
+            string fileName = file ?? (AppSettings.GetPath() + @"\Payments.json");
+            if (ListPayments.Count > 0)
+            {
+                string jsonString = JsonSerializer.Serialize(ListPayments);
+                File.WriteAllText(fileName, jsonString);
+            }
+            else if (File.Exists(fileName))
+            {
+                File.Delete(fileName);
             }
         }
         #endregion

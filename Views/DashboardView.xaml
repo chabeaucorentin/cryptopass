@@ -33,24 +33,20 @@
     <DockPanel>
         <Menu DockPanel.Dock="Top" BorderBrush="#9A9696" BorderThickness="0,1,0,1">
             <MenuItem Header="Fichier">
-                <MenuItem x:Name="BtnSave" Header="Enregistrer" />
+                <MenuItem Header="Enregistrer" Command="{Binding SaveCommand}" />
                 <Separator />
                 <MenuItem Header="Exporter les données">
-                    <MenuItem x:Name="BtnExportPasswords" Header="Mots de passe" />
-                    <MenuItem x:Name="BtnExportNotes" Header="Notes sécurisées" />
-                    <MenuItem x:Name="BtnExportPayments" Header="Moyens de paiements" />
-                    <Separator />
-                    <MenuItem x:Name="BtnExportAll" Header="Tout exporter" />
+                    <MenuItem x:Name="BtnExportPasswords" Header="Mots de passe" Click="BtnExportPasswords_Click" />
+                    <MenuItem x:Name="BtnExportNotes" Header="Notes sécurisées" Click="BtnExportNotes_Click" />
+                    <MenuItem x:Name="BtnExportPayments" Header="Moyens de paiements" Click="BtnExportPayments_Click" />
                 </MenuItem>
                 <MenuItem Header="Importer des données">
-                    <MenuItem x:Name="BtnImportPasswords" Header="Mots de passe" />
-                    <MenuItem x:Name="BtnImportNotes" Header="Notes sécurisées" />
-                    <MenuItem x:Name="BtnImportPayments" Header="Moyens de paiements" />
-                    <Separator />
-                    <MenuItem x:Name="BtnImportAll" Header="Tout importer" />
+                    <MenuItem x:Name="BtnImportPasswords" Header="Mots de passe" Click="BtnImportPasswords_Click" />
+                    <MenuItem x:Name="BtnImportNotes" Header="Notes sécurisées" Click="BtnImportNotes_Click" />
+                    <MenuItem x:Name="BtnImportPayments" Header="Moyens de paiements" Click="BtnImportPayments_Click" />
                 </MenuItem>
                 <Separator />
-                <MenuItem x:Name="BtnExit" Header="Quitter" />
+                <MenuItem x:Name="BtnExit" Header="Quitter" Click="BtnExit_Click" />
             </MenuItem>
             <MenuItem x:Name="BtnSettings" Header="Paramètres" Click="BtnSettings_Click" />
             <MenuItem x:Name="BtnAbout" Header="À propos" Click="BtnAbout_Click" />

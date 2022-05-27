@@ -25,7 +25,9 @@ namespace ViewModels.Dashboard
             _paymentsViewModel = new PaymentsViewModel();
             _generatorViewModel = new GeneratorViewModel();
             UpdateView("Passwords");
+            SaveCommand = new DelegateCommand(Save);
             UpdateViewCommand = new DelegateCommand(UpdateView);
+            Load();
         }
         #endregion
 
@@ -50,10 +52,45 @@ namespace ViewModels.Dashboard
             }
         }
 
+        public IManageSecureObject PasswordsViewModel
+        {
+            get { return (IManageSecureObject)_passwordsViewModel; }
+        }
+
+        public IManageSecureObject NotesViewModel
+        {
+            get { return (IManageSecureObject)_notesViewModel; }
+        }
+
+        public IManageSecureObject PaymentsViewModel
+        {
+            get { return (IManageSecureObject)_paymentsViewModel; }
+        }
+
+        public DelegateCommand SaveCommand { get; set; }
+
         public DelegateCommand UpdateViewCommand { get; set; }
         #endregion
 
         #region METHODS
+        public void Load()
+        {
+            if (!AppSettings.PathExist())
+            {
+                AppSettings.SetPath(Directory.GetCurrentDirectory());
+            }
+            ((PasswordsViewModel)_passwordsViewModel).Load();
+            ((NotesViewModel)_notesViewModel).Load();
+            ((PaymentsViewModel)_paymentsViewModel).Load();
+        }
+
+        public void Save(object parameter)
+        {
+            ((PasswordsViewModel)_passwordsViewModel).Save();
+            ((NotesViewModel)_notesViewModel).Save();
+            ((PaymentsViewModel)_paymentsViewModel).Save();
+        }
+
         public void UpdateView(object parameter)
         {
             switch (parameter.ToString())

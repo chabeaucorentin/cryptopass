@@ -18,6 +18,10 @@ namespace ViewModels
         void Add(object parameter);
 
         void Remove(object parameter);
+
+        void Load(string? file = null);
+
+        void Save(string? file = null);
         #endregion
     }
 }

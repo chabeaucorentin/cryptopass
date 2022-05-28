@@ -80,7 +80,7 @@ namespace ViewModels.Dashboard
                     }
                     if (ListPayments.Count > 0)
                     {
-                        SelectedPayment = ListPayments.First();
+                        SelectedPayment = ListPayments.FirstOrDefault();
                     }
                 }
             }
@@ -98,6 +98,18 @@ namespace ViewModels.Dashboard
             {
                 File.Delete(fileName);
             }
+        }
+
+        public bool HasChanged()
+        {
+            string fileName = AppSettings.GetPath() + @"\Payments.json";
+            if (File.Exists(fileName))
+            {
+                string jsonFile = File.ReadAllText(fileName);
+                string jsonString = JsonSerializer.Serialize(ListPayments);
+                return !jsonFile.Equals(jsonString);
+            }
+            return false;
         }
         #endregion
     }

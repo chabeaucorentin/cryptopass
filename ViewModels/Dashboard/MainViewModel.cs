@@ -84,11 +84,18 @@ namespace ViewModels.Dashboard
             ((PaymentsViewModel)_paymentsViewModel).Load();
         }
 
-        public void Save(object parameter)
+        public void Save(object? parameter = null)
         {
             ((PasswordsViewModel)_passwordsViewModel).Save();
             ((NotesViewModel)_notesViewModel).Save();
             ((PaymentsViewModel)_paymentsViewModel).Save();
+        }
+
+        public bool HasChanged()
+        {
+            return ((PasswordsViewModel)_passwordsViewModel).HasChanged() ||
+                ((NotesViewModel)_notesViewModel).HasChanged() ||
+                ((PaymentsViewModel)_paymentsViewModel).HasChanged();
         }
 
         public void UpdateView(object parameter)

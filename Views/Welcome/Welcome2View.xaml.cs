@@ -20,9 +20,11 @@ namespace Views.Welcome
     /// </summary>
     public partial class Welcome2View : UserControl
     {
+        #region CONSTRUCTORS
         public Welcome2View()
         {
             InitializeComponent();
         }
+        #endregion
     }
 }

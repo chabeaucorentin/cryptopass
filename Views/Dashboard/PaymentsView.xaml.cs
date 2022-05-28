@@ -20,9 +20,11 @@ namespace Views.Dashboard
     /// </summary>
     public partial class PaymentsView : UserControl
     {
+        #region CONSTRUCTORS
         public PaymentsView()
         {
             InitializeComponent();
         }
+        #endregion
     }
 }

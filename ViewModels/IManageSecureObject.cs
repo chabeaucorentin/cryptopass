@@ -22,6 +22,8 @@ namespace ViewModels
         void Load(string? file = null);
 
         void Save(string? file = null);
+
+        bool HasChanged();
         #endregion
     }
 }

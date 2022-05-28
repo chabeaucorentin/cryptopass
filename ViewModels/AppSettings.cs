@@ -42,6 +42,22 @@ namespace ViewModels
 
         public static void SetPath(string path)
         {
+            if (PathExist())
+            {
+                List<string> list = new ()
+                {
+                    @"\Passwords.json",
+                    @"\Notes.json",
+                    @"\Payments.json"
+                };
+                foreach (string item in list)
+                {
+                    if (File.Exists(AppSettings.GetPath() + item))
+                    {
+                        File.Move(AppSettings.GetPath() + item, path + item);
+                    }
+                }
+            }
             SetValue("Path", path);
         }
 

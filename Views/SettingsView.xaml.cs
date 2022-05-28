@@ -20,12 +20,15 @@ namespace Views
     /// </summary>
     public partial class SettingsView : Window
     {
+        #region CONSTRUCTORS
         public SettingsView()
         {
             InitializeComponent();
             TextBoxPath.Text = AppSettings.GetPath();
         }
+        #endregion
 
+        #region METHODS
         private bool UpdateSettings()
         {
 
@@ -91,5 +94,6 @@ namespace Views
                 PasswordBoxConfirmNewPassword.Password = "";
             }
         }
+        #endregion
     }
 }

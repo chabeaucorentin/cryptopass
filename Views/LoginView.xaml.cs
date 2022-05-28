@@ -20,11 +20,14 @@ namespace Views
     /// </summary>
     public partial class LoginView : Window
     {
+        #region CONSTRUCTORS
         public LoginView()
         {
             InitializeComponent();
         }
+        #endregion
 
+        #region METHODS
         private void BtnUnlock_Click(object sender, RoutedEventArgs e)
         {
             if (PasswordBoxPass.Password.Length == 0)
@@ -37,10 +40,11 @@ namespace Views
             }
             else
             {
-                DashboardView d = new();
+                DashboardView d = new ();
                 d.Show();
                 Close();
             }
         }
+        #endregion
     }
 }

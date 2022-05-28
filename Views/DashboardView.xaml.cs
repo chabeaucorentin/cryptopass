@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using ViewModels.Dashboard;
+using System.ComponentModel;
 
 namespace Views
 {
@@ -139,6 +140,24 @@ namespace Views
             LoginView l = new ();
             l.Show();
             Close();
+        }
+
+        protected override void OnClosing(CancelEventArgs e)
+        {
+            if (_mainViewModel.HasChanged())
+            {
+                switch (System.Windows.Forms.MessageBox.Show("Souhaitez-vous enregistrer les modifications ?",
+                    "CryptoPass", MessageBoxButtons.YesNoCancel))
+                {
+                    case System.Windows.Forms.DialogResult.Yes:
+                        _mainViewModel.Save();
+                        break;
+                    case System.Windows.Forms.DialogResult.Cancel:
+                        e.Cancel = true;
+                        break;
+                }
+            }
+            base.OnClosing(e);
         }
         #endregion
     }

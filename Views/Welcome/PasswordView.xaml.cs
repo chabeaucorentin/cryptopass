@@ -21,11 +21,14 @@ namespace Views.Welcome
     /// </summary>
     public partial class PasswordView : UserControl
     {
+        #region CONSTRUCTORS
         public PasswordView()
         {
             InitializeComponent();
         }
-
+        #endregion
+        
+        #region METHODS
         private void BtnAccess_Click(object sender, RoutedEventArgs e)
         {
             if (PasswordBoxPass.Password.Length == 0)
@@ -48,5 +51,6 @@ namespace Views.Welcome
                 Window.GetWindow(this).Close();
             }
         }
+        #endregion
     }
 }

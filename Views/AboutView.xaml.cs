@@ -19,9 +19,11 @@ namespace Views
     /// </summary>
     public partial class AboutView : Window
     {
+        #region CONSTRUCTORS
         public AboutView()
         {
             InitializeComponent();
         }
+        #endregion
     }
 }

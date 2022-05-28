@@ -20,9 +20,11 @@ namespace Views.Dashboard
     /// </summary>
     public partial class GeneratorView : UserControl
     {
+        #region CONSTRUCTORS
         public GeneratorView()
         {
             InitializeComponent();
         }
+        #endregion
     }
 }

@@ -20,9 +20,11 @@ namespace Views.Dashboard
     /// </summary>
     public partial class NotesView : UserControl
     {
+        #region CONSTRUCTORS
         public NotesView()
         {
             InitializeComponent();
         }
+        #endregion
     }
 }

@@ -14,18 +14,20 @@ namespace Views
     /// </summary>
     public partial class App : Application
     {
+        #region CONSTRUCTORS
         public App()
         {
             if (AppSettings.PassExist())
             {
-                LoginView l = new();
+                LoginView l = new ();
                 l.Show();
             }
             else
             {
-                WelcomeView w = new();
+                WelcomeView w = new ();
                 w.Show();
             }
         }
+        #endregion
     }
 }

@@ -20,10 +20,12 @@ namespace Views
     /// </summary>
     public partial class WelcomeView : Window
     {
+        #region CONSTRUCTORS
         public WelcomeView()
         {
             InitializeComponent();
             DataContext = new MainViewModel();
         }
+        #endregion
     }
 }

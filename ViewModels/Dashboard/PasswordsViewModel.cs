@@ -80,7 +80,7 @@ namespace ViewModels.Dashboard
                     }
                     if (ListPasswords.Count > 0)
                     {
-                        SelectedPassword = ListPasswords.First();
+                        SelectedPassword = ListPasswords.FirstOrDefault();
                     }
                 }
             }
@@ -98,6 +98,18 @@ namespace ViewModels.Dashboard
             {
                 File.Delete(fileName);
             }
+        }
+
+        public bool HasChanged()
+        {
+            string fileName = AppSettings.GetPath() + @"\Passwords.json";
+            if (File.Exists(fileName))
+            {
+                string jsonFile = File.ReadAllText(fileName);
+                string jsonString = JsonSerializer.Serialize(ListPasswords);
+                return !jsonFile.Equals(jsonString);
+            }
+            return false;
         }
         #endregion
     }

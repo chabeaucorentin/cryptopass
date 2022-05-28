@@ -80,7 +80,7 @@ namespace ViewModels.Dashboard
                     }
                     if (ListNotes.Count > 0)
                     {
-                        SelectedNote = ListNotes.First();
+                        SelectedNote = ListNotes.FirstOrDefault();
                     }
                 }
             }
@@ -98,6 +98,18 @@ namespace ViewModels.Dashboard
             {
                 File.Delete(fileName);
             }
+        }
+
+        public bool HasChanged()
+        {
+            string fileName = AppSettings.GetPath() + @"\Notes.json";
+            if (File.Exists(fileName))
+            {
+                string jsonFile = File.ReadAllText(fileName);
+                string jsonString = JsonSerializer.Serialize(ListNotes);
+                return !jsonFile.Equals(jsonString);
+            }
+            return false;
         }
         #endregion
     }

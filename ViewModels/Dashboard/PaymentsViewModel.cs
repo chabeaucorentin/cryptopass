@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
+using Newtonsoft.Json.Linq;
 using Models;
 
 namespace ViewModels.Dashboard
@@ -106,8 +107,13 @@ namespace ViewModels.Dashboard
             if (File.Exists(fileName))
             {
                 string jsonFile = File.ReadAllText(fileName);
-                string jsonString = JsonSerializer.Serialize(ListPayments);
-                return !jsonFile.Equals(jsonString);
+                JArray json1 = JArray.Parse(jsonFile);
+                JArray json2 = JArray.Parse(JsonSerializer.Serialize(ListPayments));
+                return !JToken.DeepEquals(json1, json2);
+            }
+            else if (ListPayments.Count > 0)
+            {
+                return true;
             }
             return false;
         }

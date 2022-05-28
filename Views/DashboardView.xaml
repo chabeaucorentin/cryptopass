@@ -8,6 +8,7 @@
         xmlns:views="clr-namespace:Views.Dashboard"
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
+        Icon="Images/icon.png"
         Title="{Binding Title}" Height="600" Width="900" MinHeight="500" MinWidth="800" Background="#F0F0F0">
     <Window.Resources>
         <ResourceDictionary>

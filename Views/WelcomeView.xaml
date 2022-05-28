@@ -9,6 +9,7 @@
         mc:Ignorable="d"
         ResizeMode="NoResize"
         WindowStartupLocation="CenterScreen"
+        Icon="Images/icon.png"
         Title="CryptoPass - Bienvenue" Height="489" Width="395">
     <Window.Resources>
         <ResourceDictionary>

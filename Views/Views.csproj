@@ -9,6 +9,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="icon.png" />
     <None Remove="Welcome\Images\dashboard.png" />
     <None Remove="Welcome\Images\note.png" />
     <None Remove="Welcome\Images\password.png" />
@@ -19,6 +20,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Images\icon.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="Welcome\Images\dashboard.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>

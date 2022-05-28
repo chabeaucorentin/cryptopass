@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Input;
+﻿using System.Windows.Input;
 
 namespace ViewModels
 {
@@ -26,16 +21,17 @@ namespace ViewModels
         #region METHODS
         public bool CanExecute(object? parameter)
         {
-            if (_canExecute == null)
+            if (_canExecute != null && parameter != null)
             {
-                return true;
+                return _canExecute(parameter);
             }
-            return _canExecute(parameter);
+            return true;
         }
 
         public void Execute(object? parameter)
         {
-            _execute(parameter);
+            object value = parameter ?? new object();
+            _execute(value);
         }
 
         public void RaiseCanExecuteChanged()

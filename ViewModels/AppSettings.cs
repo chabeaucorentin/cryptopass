@@ -1,74 +1,82 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using Microsoft.Win32;
+using System.Runtime.Versioning;
 using System.Security.Cryptography;
 using System.Text;
-using System.Threading.Tasks;
-using Microsoft.Win32;
 
 namespace ViewModels
 {
     public static class AppSettings
     {
         #region MEMBER VARIABLES
+        [SupportedOSPlatform("windows")]
         private static readonly RegistryKey rk = Registry.CurrentUser.CreateSubKey("Software").CreateSubKey("CryptoPass");
         #endregion
 
         #region METHODS
-        private static object GetValue(string key)
+        [SupportedOSPlatform("windows")]
+        private static object? GetValue(string key)
         {
             return rk.GetValue(key);
         }
 
+        [SupportedOSPlatform("windows")]
         private static void SetValue(string key, string value)
         {
             rk.SetValue(key, value);
         }
 
+        [SupportedOSPlatform("windows")]
         public static void SetPass(string pass)
         {
             SetValue("Password", GetHash(pass));
         }
 
+        [SupportedOSPlatform("windows")]
         public static bool PassExist()
         {
             return GetValue("Password") != null;
         }
 
+        [SupportedOSPlatform("windows")]
         public static bool CheckPass(string pass)
         {
-            return GetValue("Password").Equals(GetHash(pass));
+            string? password = GetValue("Password")?.ToString();
+            if (password != null)
+            {
+                return password.Equals(GetHash(pass));
+            }
+            return false;
         }
 
+        [SupportedOSPlatform("windows")]
         public static void SetPath(string path)
         {
-            if (PathExist())
+            List<string> list = new ()
             {
-                List<string> list = new ()
+                @"\Passwords.json",
+                @"\Notes.json",
+                @"\Payments.json"
+            };
+            foreach (string item in list)
+            {
+                if (File.Exists(AppSettings.GetPath() + item))
                 {
-                    @"\Passwords.json",
-                    @"\Notes.json",
-                    @"\Payments.json"
-                };
-                foreach (string item in list)
-                {
-                    if (File.Exists(AppSettings.GetPath() + item))
-                    {
-                        File.Move(AppSettings.GetPath() + item, path + item);
-                    }
+                    File.Move(AppSettings.GetPath() + item, path + item);
                 }
             }
             SetValue("Path", path);
         }
 
+        [SupportedOSPlatform("windows")]
         public static string GetPath()
         {
-            return (string)GetValue("Path");
-        }
-
-        public static bool PathExist()
-        {
-            return GetValue("Path") != null && Directory.Exists(GetPath());
+            string? path = GetValue("Path")?.ToString();
+            if (path == null || !Directory.Exists(path))
+            {
+                path = Directory.GetCurrentDirectory();
+                SetPath(path);
+            }
+            return path;
         }
 
         public static string GetHash(string text)

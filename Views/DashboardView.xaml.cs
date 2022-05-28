@@ -1,19 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Forms;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
-using ViewModels.Dashboard;
+﻿using Microsoft.Win32;
 using System.ComponentModel;
+using System.Windows;
+using ViewModels.Dashboard;
 
 namespace Views
 {
@@ -23,7 +11,7 @@ namespace Views
     public partial class DashboardView : Window
     {
         #region MEMBER VARIABLES
-        private MainViewModel _mainViewModel;
+        private readonly MainViewModel _mainViewModel;
         #endregion
 
         #region CONSTRUCTORS
@@ -40,9 +28,8 @@ namespace Views
         {
             SaveFileDialog saveFileDialog = new ();
             saveFileDialog.Filter = "Fichier JSON (*.json)|*.json";
-            DialogResult result = saveFileDialog.ShowDialog();
 
-            if (result == System.Windows.Forms.DialogResult.OK)
+            if (saveFileDialog.ShowDialog() == true)
             {
                 return saveFileDialog.FileName;
             }
@@ -54,9 +41,8 @@ namespace Views
         {
             OpenFileDialog openFileDialog = new ();
             openFileDialog.Filter = "Fichier JSON (*.json)|*.json";
-            DialogResult result = openFileDialog.ShowDialog();
 
-            if (result == System.Windows.Forms.DialogResult.OK)
+            if (openFileDialog.ShowDialog() == true)
             {
                 return openFileDialog.FileName;
             }
@@ -146,13 +132,13 @@ namespace Views
         {
             if (_mainViewModel.HasChanged())
             {
-                switch (System.Windows.Forms.MessageBox.Show("Souhaitez-vous enregistrer les modifications ?",
-                    "CryptoPass", MessageBoxButtons.YesNoCancel))
+                switch (MessageBox.Show("Souhaitez-vous enregistrer les modifications ?",
+                    "CryptoPass", MessageBoxButton.YesNoCancel))
                 {
-                    case System.Windows.Forms.DialogResult.Yes:
+                    case MessageBoxResult.Yes:
                         _mainViewModel.Save();
                         break;
-                    case System.Windows.Forms.DialogResult.Cancel:
+                    case MessageBoxResult.Cancel:
                         e.Cancel = true;
                         break;
                 }

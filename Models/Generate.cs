@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Models
+﻿namespace Models
 {
     public class Generate
     {
@@ -64,7 +58,7 @@ namespace Models
         {
             string pass = "";
             string characters = "";
-            Random rand = new Random();
+            Random rand = new ();
 
             if (_useNumbers)
             {

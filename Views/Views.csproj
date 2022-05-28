@@ -6,13 +6,18 @@
     <Nullable>enable</Nullable>
     <UseWPF>true</UseWPF>
     <UseWindowsForms>true</UseWindowsForms>
+    <ApplicationIcon>Images\icon.ico</ApplicationIcon>
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="icon.png" />
+    <None Remove="Images\icon.png" />
     <None Remove="Welcome\Images\dashboard.png" />
     <None Remove="Welcome\Images\note.png" />
     <None Remove="Welcome\Images\password.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Images\icon.ico" />
   </ItemGroup>
 
   <ItemGroup>

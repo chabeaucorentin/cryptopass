@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Newtonsoft.Json.Linq;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
+using System.Runtime.Versioning;
 using System.Text.Json;
-using System.Threading.Tasks;
-using Newtonsoft.Json.Linq;
 using Models;
 
 namespace ViewModels.Dashboard
@@ -66,6 +62,7 @@ namespace ViewModels.Dashboard
             }
         }
 
+        [SupportedOSPlatform("windows")]
         public void Load(string? file = null)
         {
             string fileName = file ?? (AppSettings.GetPath() + @"\Passwords.json");
@@ -87,6 +84,7 @@ namespace ViewModels.Dashboard
             }
         }
 
+        [SupportedOSPlatform("windows")]
         public void Save(string? file = null)
         {
             string fileName = file ?? (AppSettings.GetPath() + @"\Passwords.json");
@@ -101,6 +99,7 @@ namespace ViewModels.Dashboard
             }
         }
 
+        [SupportedOSPlatform("windows")]
         public bool HasChanged()
         {
             string fileName = AppSettings.GetPath() + @"\Passwords.json";

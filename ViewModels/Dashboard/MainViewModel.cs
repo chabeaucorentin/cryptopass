@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Runtime.Versioning;
 
 namespace ViewModels.Dashboard
 {
@@ -18,6 +14,7 @@ namespace ViewModels.Dashboard
         #endregion
 
         #region CONSTRUCTORS
+        [SupportedOSPlatform("windows")]
         public MainViewModel()
         {
             _passwordsViewModel = new PasswordsViewModel();
@@ -73,17 +70,15 @@ namespace ViewModels.Dashboard
         #endregion
 
         #region METHODS
+        [SupportedOSPlatform("windows")]
         public void Load()
         {
-            if (!AppSettings.PathExist())
-            {
-                AppSettings.SetPath(Directory.GetCurrentDirectory());
-            }
             ((PasswordsViewModel)_passwordsViewModel).Load();
             ((NotesViewModel)_notesViewModel).Load();
             ((PaymentsViewModel)_paymentsViewModel).Load();
         }
 
+        [SupportedOSPlatform("windows")]
         public void Save(object? parameter = null)
         {
             ((PasswordsViewModel)_passwordsViewModel).Save();
@@ -91,6 +86,7 @@ namespace ViewModels.Dashboard
             ((PaymentsViewModel)_paymentsViewModel).Save();
         }
 
+        [SupportedOSPlatform("windows")]
         public bool HasChanged()
         {
             return ((PasswordsViewModel)_passwordsViewModel).HasChanged() ||

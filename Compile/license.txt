@@ -1,0 +1,23 @@
+Contrat de licence du produit "CryptoPass"
+
+1. Définitions
+
+Les définitions suivantes s'appliquent aux termes du présent contrat :
+
+1.1 « CryptoPass » désigne le produit dont l'utilisation est soumise aux conditions de cette licence, constitué d'un logiciel et éventuellement d'autres contenus.
+1.2 « Logiciel » désigne le programme informatique sous ce contrat de licence au format code objet contenu dans le programme, y compris toutes les mises à jour et mises à niveau, et à l'exception des contenus livrés avec.
+1.3 « Contenus » désigne dans ce contrat les contenus supplémentaires compris dans le logiciel d'un produit Xaphyr Software, comme par exemple les tableaux et modèles comprenant des fichiers correspondants.
+1.4 « Ordinateur » désigne chaque appareil physique ou virtuel (par exemple : PC, portable, station de travail, instance d'une machine virtuelle, etc.), connecté à un CPU ou processeur multicore. Le cas des réseaux : si plusieurs ordinateurs en réseau ont accès à un serveur sur lequel le produit est installé, chaque élément de ce réseau (poste de travail) est un ordinateur au sens de ce contrat de licence, ce qui signifie qu'il est nécessaire d'être en possession d'une licence distincte pour chaque ordinateur du réseau.
+1.5 « Mise à niveau » désigne au sens de ce contrat de licence la version complétée d'un produit Xaphyr Software.
+1.6 « Usage commercial » désigne dans ce contrat toute utilisation professionnelle et toute utilisation du logiciel ou de ses contenus visant des avantages pécuniaires directs ou indirects (par vente ou concession, inclusion de publicité dans des publications sur Internet, etc.)
+
+2. Objet du contrat
+
+2.1 Xaphyr Software vous (en tant que « client ») accorde le droit non exclusif et non cessible d'utiliser le produit Xaphyr Software concerné sur le nombre d'ordinateurs défini par le numéro de série ou la licence obtenue selon les conditions spécifiées par le présent contrat et pour la durée de ce contrat. La propriété intellectuelle et tout autre droit de protection du logiciel restent la propriété de Xaphyr Software. Le client renonce à tout droit de propriété sur le logiciel, les copies de sécurité ainsi que la documentation. La responsabilité de l'utilisation du programme sous licence selon les termes stipulés dans le contrat incombe à l'acheteur du programme.
+
+2.2 Mises à niveau : seuls les propriétaires d'un produit de base sont en droit de bénéficier des mises à niveau correspondantes. Vous devez être propriétaire et utilisateur du produit de base pour pouvoir utiliser les mises à niveau. En conséquence, il est interdit de transmettre isolément une mise à niveau à des tiers.
+
+3. Usage commercial du logiciel et des contenus
+
+3.1 Logiciel
+Aucun usage commercial du logiciel n'est autorisé sans un accord signé de Xaphyr Software.

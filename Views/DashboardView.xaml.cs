@@ -12,6 +12,7 @@ namespace Views
     {
         #region MEMBER VARIABLES
         private readonly MainViewModel _mainViewModel;
+        private bool _canClose;
         #endregion
 
         #region CONSTRUCTORS
@@ -20,6 +21,7 @@ namespace Views
             InitializeComponent();
             _mainViewModel = new MainViewModel();
             DataContext = _mainViewModel;
+            _canClose = false;
         }
         #endregion
 
@@ -48,6 +50,23 @@ namespace Views
             }
 
             return null;
+        }
+
+        private bool CanClose()
+        {
+            if (_mainViewModel.HasChanged())
+            {
+                switch (MessageBox.Show("Souhaitez-vous enregistrer les modifications ?",
+                    "CryptoPass", MessageBoxButton.YesNoCancel))
+                {
+                    case MessageBoxResult.Yes:
+                        _mainViewModel.Save();
+                        break;
+                    case MessageBoxResult.Cancel:
+                        return false;
+                }
+            }
+            return true;
         }
 
         private void BtnExportPasswords_Click(object sender, RoutedEventArgs e)
@@ -123,25 +142,20 @@ namespace Views
 
         private void BtnLogout_Click(object sender, RoutedEventArgs e)
         {
-            LoginView l = new();
-            l.Show();
-            Close();
+            if (CanClose())
+            {
+                LoginView l = new();
+                l.Show();
+                _canClose = true;
+                Close();
+            }
         }
 
         protected override void OnClosing(CancelEventArgs e)
         {
-            if (_mainViewModel.HasChanged())
+            if (!_canClose)
             {
-                switch (MessageBox.Show("Souhaitez-vous enregistrer les modifications ?",
-                    "CryptoPass", MessageBoxButton.YesNoCancel))
-                {
-                    case MessageBoxResult.Yes:
-                        _mainViewModel.Save();
-                        break;
-                    case MessageBoxResult.Cancel:
-                        e.Cancel = true;
-                        break;
-                }
+                e.Cancel = !CanClose();
             }
             base.OnClosing(e);
         }

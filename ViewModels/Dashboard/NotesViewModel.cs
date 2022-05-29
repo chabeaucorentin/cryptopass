@@ -88,7 +88,7 @@ namespace ViewModels.Dashboard
         public void Save(string? file = null)
         {
             string fileName = file ?? (AppSettings.GetPath() + @"\Notes.json");
-            if (ListNotes.Count > 0)
+            if (file != null || ListNotes.Count > 0)
             {
                 string jsonString = JsonSerializer.Serialize(ListNotes);
                 File.WriteAllText(fileName, jsonString);

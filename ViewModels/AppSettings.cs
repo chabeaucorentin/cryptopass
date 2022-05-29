@@ -51,17 +51,20 @@ namespace ViewModels
         [SupportedOSPlatform("windows")]
         public static void SetPath(string path)
         {
-            List<string> list = new ()
+            if (PathExist())
             {
-                @"\Passwords.json",
-                @"\Notes.json",
-                @"\Payments.json"
-            };
-            foreach (string item in list)
-            {
-                if (File.Exists(AppSettings.GetPath() + item))
+                List<string> list = new()
                 {
-                    File.Move(AppSettings.GetPath() + item, path + item);
+                    @"\Passwords.json",
+                    @"\Notes.json",
+                    @"\Payments.json"
+                };
+                foreach (string item in list)
+                {
+                    if (File.Exists(AppSettings.GetPath() + item))
+                    {
+                        File.Move(AppSettings.GetPath() + item, path + item);
+                    }
                 }
             }
             SetValue("Path", path);
@@ -70,13 +73,18 @@ namespace ViewModels
         [SupportedOSPlatform("windows")]
         public static string GetPath()
         {
-            string? path = GetValue("Path")?.ToString();
-            if (path == null || !Directory.Exists(path))
+            if (GetValue("Path") is not string path || !Directory.Exists(path))
             {
                 path = Directory.GetCurrentDirectory();
                 SetPath(path);
             }
             return path;
+        }
+
+        [SupportedOSPlatform("windows")]
+        public static bool PathExist()
+        {
+            return GetValue("Path") != null && Directory.Exists(GetPath());
         }
 
         public static string GetHash(string text)

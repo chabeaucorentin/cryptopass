@@ -26,7 +26,7 @@ namespace Views
         #region METHODS
         private static string? SaveFileDialog()
         {
-            SaveFileDialog saveFileDialog = new ();
+            SaveFileDialog saveFileDialog = new();
             saveFileDialog.Filter = "Fichier JSON (*.json)|*.json";
 
             if (saveFileDialog.ShowDialog() == true)
@@ -39,7 +39,7 @@ namespace Views
 
         private static string? OpenFileDialog()
         {
-            OpenFileDialog openFileDialog = new ();
+            OpenFileDialog openFileDialog = new();
             openFileDialog.Filter = "Fichier JSON (*.json)|*.json";
 
             if (openFileDialog.ShowDialog() == true)
@@ -111,19 +111,19 @@ namespace Views
 
         private void BtnSettings_Click(object sender, RoutedEventArgs e)
         {
-            SettingsView s = new ();
+            SettingsView s = new();
             s.ShowDialog();
         }
 
         private void BtnAbout_Click(object sender, RoutedEventArgs e)
         {
-            AboutView a = new ();
+            AboutView a = new();
             a.ShowDialog();
         }
 
         private void BtnLogout_Click(object sender, RoutedEventArgs e)
         {
-            LoginView l = new ();
+            LoginView l = new();
             l.Show();
             Close();
         }

@@ -58,7 +58,7 @@
         {
             string pass = "";
             string characters = "";
-            Random rand = new ();
+            Random rand = new();
 
             if (_useNumbers)
             {

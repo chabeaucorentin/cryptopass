@@ -28,7 +28,7 @@ namespace Views
             }
             else
             {
-                DashboardView d = new ();
+                DashboardView d = new();
                 d.Show();
                 Close();
             }

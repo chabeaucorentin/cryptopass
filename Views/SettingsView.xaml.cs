@@ -50,7 +50,7 @@ namespace Views
 
         private void BtnSelectPath_Click(object sender, RoutedEventArgs e)
         {
-            System.Windows.Forms.FolderBrowserDialog folderBrowserDialog = new ();
+            System.Windows.Forms.FolderBrowserDialog folderBrowserDialog = new();
             folderBrowserDialog.SelectedPath = TextBoxPath.Text;
             System.Windows.Forms.DialogResult result = folderBrowserDialog.ShowDialog();
 

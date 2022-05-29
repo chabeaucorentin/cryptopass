@@ -34,7 +34,7 @@ namespace Views.Welcome
             else
             {
                 AppSettings.SetPass(PasswordBoxPass.Password);
-                DashboardView d = new ();
+                DashboardView d = new();
                 d.Show();
                 Window.GetWindow(this).Close();
             }

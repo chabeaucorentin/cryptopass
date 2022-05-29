@@ -88,7 +88,7 @@ namespace ViewModels.Dashboard
         public void Save(string? file = null)
         {
             string fileName = file ?? (AppSettings.GetPath() + @"\Payments.json");
-            if (ListPayments.Count > 0)
+            if (file != null || ListPayments.Count > 0)
             {
                 string jsonString = JsonSerializer.Serialize(ListPayments);
                 File.WriteAllText(fileName, jsonString);

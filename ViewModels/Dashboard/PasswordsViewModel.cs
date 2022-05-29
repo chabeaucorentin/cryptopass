@@ -88,7 +88,7 @@ namespace ViewModels.Dashboard
         public void Save(string? file = null)
         {
             string fileName = file ?? (AppSettings.GetPath() + @"\Passwords.json");
-            if (ListPasswords.Count > 0)
+            if (file != null || ListPasswords.Count > 0)
             {
                 string jsonString = JsonSerializer.Serialize(ListPasswords);
                 File.WriteAllText(fileName, jsonString);

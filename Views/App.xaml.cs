@@ -13,12 +13,12 @@ namespace Views
         {
             if (AppSettings.PassExist())
             {
-                LoginView l = new ();
+                LoginView l = new();
                 l.Show();
             }
             else
             {
-                WelcomeView w = new ();
+                WelcomeView w = new();
                 w.Show();
             }
         }

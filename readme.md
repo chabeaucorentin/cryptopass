@@ -18,6 +18,10 @@ __[:page_facing_up: Énoncé du projet](./Ressources/enonce.pdf)__
 
   Script de génération du setup d'installation du projet.
 
+* __[:framed_picture: Images/](Images/)__
+
+  Images présentent dans cette documentation.
+
 * __[:pencil2: Mockup/](./Mockup/)__
 
   Prototypes de l'interface utilisateur.

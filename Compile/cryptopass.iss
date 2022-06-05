@@ -3,7 +3,7 @@
 #define MyAppPublisher "Xaphyr Software"
 #define MyAppURL "https://www.xaphyr.com/"
 #define MyAppExeName "Views.exe"
-#define Path "..\Views\bin\Release\net6.0-windows\publish"
+#define MyAppPath "..\Views\bin\Release\net6.0-windows\publish"
 
 [Setup]
 ; NOTE: The value of AppId uniquely identifies this application. Do not use the same AppId value in installers for other applications.
@@ -36,16 +36,16 @@ Name: "french"; MessagesFile: "compiler:Languages\French.isl"
 Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{cm:AdditionalIcons}"; Flags: unchecked
 
 [Files]
-Source: "{#Path}\{#MyAppExeName}"; DestDir: "{app}"; Flags: ignoreversion
-Source: "{#Path}\Models.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "{#Path}\Models.pdb"; DestDir: "{app}"; Flags: ignoreversion
-Source: "{#Path}\Newtonsoft.Json.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "{#Path}\ViewModels.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "{#Path}\ViewModels.pdb"; DestDir: "{app}"; Flags: ignoreversion
-Source: "{#Path}\Views.deps.json"; DestDir: "{app}"; Flags: ignoreversion
-Source: "{#Path}\Views.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "{#Path}\Views.pdb"; DestDir: "{app}"; Flags: ignoreversion
-Source: "{#Path}\Views.runtimeconfig.json"; DestDir: "{app}"; Flags: ignoreversion
+Source: "{#MyAppPath}\{#MyAppExeName}"; DestDir: "{app}"; Flags: ignoreversion
+Source: "{#MyAppPath}\Models.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "{#MyAppPath}\Models.pdb"; DestDir: "{app}"; Flags: ignoreversion
+Source: "{#MyAppPath}\Newtonsoft.Json.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "{#MyAppPath}\ViewModels.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "{#MyAppPath}\ViewModels.pdb"; DestDir: "{app}"; Flags: ignoreversion
+Source: "{#MyAppPath}\Views.deps.json"; DestDir: "{app}"; Flags: ignoreversion
+Source: "{#MyAppPath}\Views.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "{#MyAppPath}\Views.pdb"; DestDir: "{app}"; Flags: ignoreversion
+Source: "{#MyAppPath}\Views.runtimeconfig.json"; DestDir: "{app}"; Flags: ignoreversion
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
 
 [Icons]
